@@ -23,7 +23,11 @@ class Flight < ActiveRecord::Base
   end
 
   def commission
-    (self.sum / 100 * 1.5).round(2)
+    if self.percent == true
+      (self.sum / 100 * 1.5).round(2)
+    else
+      (self.sum / 100 * 2.0).round(2)
+    end
   end
 
   def totalAmount
