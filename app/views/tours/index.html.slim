@@ -1,0 +1,37 @@
+h1 Listing tours
+
+table
+  thead
+    tr
+      th Contract
+      th Firstname
+      th Lastname
+      th Sum
+      th = t('Percent')
+      th Commission
+      th Totalamount
+      th Email
+      th Telephone
+      th
+      th
+      th
+
+  tbody
+    - @tours.each do |tour|
+      tr
+        td = tour.contract
+        td = tour.firstName
+        td = tour.lastName
+        td = tour.sum
+        td = tour.percent
+        td = tour.commission
+        td = tour.totalAmount
+        td = tour.email
+        td = tour.telephone
+        td = link_to 'Show', tour
+        td = link_to 'Edit', edit_tour_path(tour)
+        td = link_to 'Destroy', tour, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Tour', new_tour_path

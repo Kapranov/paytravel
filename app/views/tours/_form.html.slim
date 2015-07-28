@@ -1,0 +1,16 @@
+= simple_form_for(@tour) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :contract
+    = f.input :firstName
+    = f.input :lastName
+    = f.input :sum, value: "%.2f" % f.object.sum.to_f
+    = f.input :percent
+    = f.input :commission, value: "%.2f" % f.object.commission.to_f
+    = f.input :totalAmount, value: "%.2f" % f.object.totalAmount.to_f
+    = f.input :email
+    = f.input :telephone
+
+  .form-actions
+    = f.button :submit

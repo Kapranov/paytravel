@@ -5,7 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = CreateAdminService.new.call
-puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
+#
+#
+# user = CreateAdminService.new.call
+# puts 'CREATED ADMIN USER: ' << user.email
+#
+Flight.delete_all
+# Flight.create! id: 1, name: "Banana", price: 0.49, active: true
+Flight.create! id: 1, contract: "A-000001", firstName: "Олег", lastName: "Капранов", sum: 10235.09, percent: true, commission: 153.22, totalAmount: 10388.53, email: "lugatex@yahoo.com", telephone: "0997170609"

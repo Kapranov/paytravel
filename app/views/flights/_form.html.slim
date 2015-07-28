@@ -1,0 +1,26 @@
+= simple_form_for(@flight) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :contract, include_blank: false
+    = f.input :firstName, include_blank: false
+    = f.input :lastName, include_blank: false
+    = f.input :sum, value: "%.2f" % f.object.sum.to_f
+    b
+      = t('Percent')
+      | :
+      '
+    = f.radio_button :percent, 1
+    '
+    = f.label :true, t('percentOne')
+    '
+    = f.radio_button :percent, 0
+    '
+    = f.label :true, t('percentTwo')
+    /= f.input :commission,  :as => :hidden, :input_html => { :value => "%.2f" % f.object.commission.to_f }
+    /= f.input :totalAmount, :as => :hidden, :input_html => { :value => "%.2f" % f.object.totalAmount.to_f }
+    = f.input :email
+    = f.input :telephone
+
+  .form-actions
+    = f.button :submit

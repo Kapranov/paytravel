@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Contract:
+  = @tour.contract
+p
+  strong Firstname:
+  = @tour.firstName
+p
+  strong Lastname:
+  = @tour.lastName
+p
+  strong Sum:
+  = @tour.sum
+p
+  strong
+  = @tour.percent
+p
+  strong Commission:
+  = @tour.commission
+p
+  strong Totalamount:
+  = @tour.totalAmount
+p
+  strong Email:
+  = @tour.email
+p
+  strong Telephone:
+  = @tour.telephone
+
+= link_to 'Edit', edit_tour_path(@tour)
+'|
+= link_to 'Back', tours_path

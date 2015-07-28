@@ -1,0 +1,48 @@
+p#notice = notice
+
+p
+  strong Contract:
+  = @flight.contract
+p
+  strong Firstname:
+  '
+  = @flight.firstName
+p
+  strong Lastname:
+  '
+  = @flight.lastName
+p
+  strong Sum:
+  '
+  = @flight.sum
+p
+  strong
+    = t('Percent')
+    | :
+    '
+  - if @flight.percent
+    a 1.5%
+  - else
+    a 2%
+p
+  strong
+    = t('Commission')
+    | :
+    '
+  = @flight.commission
+p
+  strong Totalamount:
+  '
+  = @flight.totalAmount
+p
+  strong Email:
+  '
+  = @flight.email
+p
+  strong Telephone:
+  '
+  = @flight.telephone
+
+= link_to 'Edit', edit_flight_path(@flight)
+'|
+= link_to 'Back', flights_path
