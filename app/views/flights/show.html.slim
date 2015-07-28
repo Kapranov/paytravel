@@ -1,19 +1,29 @@
 p#notice = notice
 
 p
-  strong Contract:
-  = @flight.contract
+  strong
+    = t('Contract')
+    | :
+    '
+  = @flight.name
+
 p
-  strong Firstname:
-  '
-  = @flight.firstName
-p
-  strong Lastname:
-  '
+  strong
+    = t('lastName')
+    | :
+    '
   = @flight.lastName
 p
-  strong Sum:
-  '
+  strong
+    = t('firstName')
+    | :
+    '
+  = @flight.firstName
+p
+  strong
+    = t('Sum')
+    | :
+    '
   = @flight.sum
 p
   strong
@@ -31,18 +41,26 @@ p
     '
   = @flight.commission
 p
-  strong Totalamount:
-  '
+  strong
+    = t('Totalamount')
+    |
+    '
   = @flight.totalAmount
 p
-  strong Email:
-  '
+  strong
+    = t('email')
+    | :
+    '
   = @flight.email
 p
-  strong Telephone:
-  '
-  = @flight.telephone
+  strong
+    = t('Telephone')
+    | :
+    '
+  = @flight.name_telephone
 
-= link_to 'Edit', edit_flight_path(@flight)
+= link_to t('Edit'), edit_flight_path(@flight)
+'
 '|
-= link_to 'Back', flights_path
+'
+= link_to t('Back'), flights_path

@@ -69,6 +69,15 @@ class ToursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tour_params
-      params.require(:tour).permit(:contract, :firstName, :lastName, :sum, :commissionOne, :commissionTwo, :commission, :totalAmount, :email, :telephone)
+      params.require(:tour).permit(
+        :firstName,
+        :lastName,
+        :sum,
+        :percent,
+        :commission,
+        :totalAmount,
+        :email,
+        :telephone
+      )
     end
 end

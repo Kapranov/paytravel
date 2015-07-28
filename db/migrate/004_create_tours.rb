@@ -1,7 +1,6 @@
 class CreateTours < ActiveRecord::Migration
   def change
     create_table :tours do |t|
-      t.string  :contract,        null: false
       t.string  :firstName,       null: false
       t.string  :lastName,        null: false
       t.decimal :sum,             null: false, precision: 12, scale: 3
@@ -13,6 +12,5 @@ class CreateTours < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :tours, :contract, unique: true
   end
 end

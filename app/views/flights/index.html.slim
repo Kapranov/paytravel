@@ -3,15 +3,15 @@ h1 Listing flights
 table
   thead
     tr
-      th Contract
-      th Firstname
-      th Lastname
-      th Sum
+      th = t('Contract')
+      th = t('lastName')
+      th = t('firstName')
+      th = t('Sum')
       th = t('Percent')
       th = t('Commission')
-      th Totalamount
-      th Email
-      th Telephone
+      th = t('Totalamount')
+      th = t('email')
+      th = t('Telephone')
       th
       th
       th
@@ -19,9 +19,9 @@ table
   tbody
     - @flights.each do |flight|
       tr
-        td = flight.contract
-        td = flight.firstName
+        td = flight.name
         td = flight.lastName
+        td = flight.firstName
         td = flight.sum
         td
           - if flight.percent
@@ -31,11 +31,10 @@ table
         td = flight.commission
         td = flight.totalAmount
         td = flight.email
-        td = flight.telephone
-        td = link_to 'Show', flight
-        td = link_to 'Edit', edit_flight_path(flight)
-        td = link_to 'Destroy', flight, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = flight.name_telephone
+        td = link_to t('Show'), flight
+        td = link_to t('Edit'), edit_flight_path(flight)
 
 br
 
-= link_to 'New Flight', new_flight_path
+= link_to t('New Flight'), new_flight_path

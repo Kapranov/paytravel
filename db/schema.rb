@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 4) do
 
   create_table "flights", force: :cascade do |t|
-    t.string   "contract",                             null: false
     t.string   "firstName",                            null: false
     t.string   "lastName",                             null: false
     t.decimal  "sum",         precision: 12, scale: 3, null: false
@@ -26,11 +25,8 @@ ActiveRecord::Schema.define(version: 4) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
   end
-
-  add_index "flights", ["contract"], name: "index_flights_on_contract", unique: true
 
   create_table "tours", force: :cascade do |t|
-    t.string   "contract",                             null: false
     t.string   "firstName",                            null: false
     t.string   "lastName",                             null: false
     t.decimal  "sum",         precision: 12, scale: 3, null: false
@@ -42,8 +38,6 @@ ActiveRecord::Schema.define(version: 4) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
   end
-
-  add_index "tours", ["contract"], name: "index_tours_on_contract", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

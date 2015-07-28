@@ -1,9 +1,7 @@
 class Flight < ActiveRecord::Base
   before_save :update_commission
 
-  validates :contract, :firstName, :lastName, :email, :telephone, presence: true
-  validates_uniqueness_of :contract
-  # validates_numericality_of :sum, :commission, :totalAmount
+  validates :firstName, :lastName, :email, :telephone, presence: true
   validates :sum, presence: true,
     numericality: { only_integer: false, greater_than: 0 },
     format: { :with => /\A\d{1,6}(\.\d{0,2})?\z/ }
@@ -34,6 +32,14 @@ class Flight < ActiveRecord::Base
     (self.sum + self.commission).round(0)
   end
 
+  def name_telephone
+    self.telephone.to_s.rjust(10, '0')
+  end
+
+  def name
+    'A-' + id.to_s.rjust(6, '0')
+  end
+
   private
     def total
       (unit_price * quantity).round(2)
@@ -51,5 +57,4 @@ class Flight < ActiveRecord::Base
     def update_totalAmount
       self[:totalAmount] = totalAmount
     end
-
 end

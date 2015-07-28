@@ -1,1 +1,1 @@
-json.extract! @flight, :id, :contract, :firstName, :lastName, :sum, :percent, :commission, :totalAmount, :email, :telephone, :created_at, :updated_at
+json.extract! @flight, :id, :firstName, :lastName, :sum, :percent, :commission, :totalAmount, :email, :telephone, :created_at, :updated_at
