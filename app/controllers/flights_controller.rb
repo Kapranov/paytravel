@@ -1,28 +1,30 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
-  # GET /flights
-  # GET /flights.json
   def index
     @flights = Flight.all
   end
 
-  # GET /flights/1
-  # GET /flights/1.json
   def show
+    @flight = Flight.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+         pdf = FlightPdf.new(@flight, view_context)
+         send_data pdf.render, filename:
+         "flight_#{@flight.created_at.strftime("%d/%m/%Y")}.pdf",
+         type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
-  # GET /flights/new
   def new
     @flight = Flight.new
   end
 
-  # GET /flights/1/edit
   def edit
   end
 
-  # POST /flights
-  # POST /flights.json
   def create
     @flight = Flight.new(flight_params)
 

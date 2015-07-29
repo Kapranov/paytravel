@@ -175,6 +175,10 @@ GEM
     passenger (5.0.14)
       rack
       rake (>= 0.8.1)
+    pdf-core (0.6.0)
+    prawn (2.0.2)
+      pdf-core (~> 0.6.0)
+      ttfunk (~> 1.4.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -288,6 +292,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    ttfunk (1.4.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -332,6 +337,7 @@ DEPENDENCIES
   launchy
   money-rails
   passenger
+  prawn
   pry-rails
   pry-rescue
   quiet_assets

@@ -20,6 +20,7 @@ module Paytravel
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
+    config.autoload_paths << "#{Rails.root}/app/reports"
     config.i18n.fallbacks = true
     config.time_zone = 'Kyiv'
     config.i18n.default_locale = :en

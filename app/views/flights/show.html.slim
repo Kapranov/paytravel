@@ -53,6 +53,10 @@ p
     '
   = @flight.name_telephone
 
+= link_to t('Download flight'), flight_path(@flight.id, :format => "pdf")
+'
+'|
+'
 = link_to t('Edit'), edit_flight_path(@flight)
 '
 '|
