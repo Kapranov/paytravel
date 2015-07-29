@@ -12,7 +12,7 @@ p
     = t('Create at')
     | :
     '
-  = local_time(@flight.created_at, '%B %e, %Y')
+  = @flight.created_at.strftime('%d/%m/%Y')
 p
   strong
     = t('fullName')
@@ -59,7 +59,7 @@ p
     '
   = @flight.name_telephone
 
-= link_to 'Send Mail', mail_send_flight_path(@flight)
+= link_to t('Send Mail'), mail_send_flight_path(@flight)
 '
 '|
 '

@@ -30,8 +30,6 @@ class FlightsController < ApplicationController
 
     respond_to do |format|
       if @flight.save
-        # Tell the UserMailer to send a welcome email after save
-        # FlightsMailer.report_email(@flight).deliver_later
         format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
       else

@@ -28,7 +28,10 @@
     '
     = f.label :true, t('percentTwo')
     = f.input :email, label: t('email')
-    = f.input :telephone, label: t('Telephone')
+    - if @tour.telephone.nil?
+      = f.input :telephone, label: t('Telephone')
+    - else
+      = f.input :name_telephone, label: t('Telephone')
 
   .form-actions
     = f.button :submit, t('Save')

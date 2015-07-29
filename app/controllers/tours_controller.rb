@@ -59,6 +59,11 @@ class ToursController < ApplicationController
     end
   end
 
+  def mail_send
+    @mail = NoticeMailer.sendmail_confirm.deliver
+    render :text => 'God Bless USA! send finish'
+  end
+
   private
     def set_tour
       @tour = Tour.find(params[:id])

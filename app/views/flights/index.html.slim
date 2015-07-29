@@ -20,7 +20,7 @@ table
     - @flights.each do |flight|
       tr
         td = flight.name
-        td = local_time(flight.created_at, '%B %e, %Y')
+        td = flight.created_at.strftime('%d/%m/%Y')
         td = flight.fullName
         td = flight.sum
         td

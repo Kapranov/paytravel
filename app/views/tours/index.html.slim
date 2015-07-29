@@ -20,7 +20,7 @@ table
     - @tours.each do |tour|
       tr
         td = tour.name
-        td = local_time(tour.created_at, '%B %e, %Y')
+        td = tour.created_at.strftime('%d/%m/%Y')
         td = tour.fullName
         td = tour.sum
         td
