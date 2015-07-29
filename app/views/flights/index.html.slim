@@ -4,6 +4,7 @@ table
   thead
     tr
       th = t('Contract')
+      th = t('Create at')
       th = t('fullName')
       th = t('Sum')
       th = t('Percent')
@@ -19,6 +20,7 @@ table
     - @flights.each do |flight|
       tr
         td = flight.name
+        td = local_time(flight.created_at, '%B %e, %Y')
         td = flight.fullName
         td = flight.sum
         td

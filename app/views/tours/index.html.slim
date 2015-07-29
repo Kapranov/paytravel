@@ -4,6 +4,7 @@ table
   thead
     tr
       th = t('Contract')
+      th = t('Create at')
       th = t('fullName')
       th = t('Sum')
       th = t('Percent')
@@ -19,6 +20,7 @@ table
     - @tours.each do |tour|
       tr
         td = tour.name
+        td = local_time(tour.created_at, '%B %e, %Y')
         td = tour.fullName
         td = tour.sum
         td

@@ -9,6 +9,12 @@ p
 
 p
   strong
+    = t('Create at')
+    | :
+    '
+  = local_time(@flight.created_at, '%B %e, %Y')
+p
+  strong
     = t('fullName')
     | :
     '
@@ -53,6 +59,10 @@ p
     '
   = @flight.name_telephone
 
+= link_to 'Send Mail', mail_send_flight_path(@flight)
+'
+'|
+'
 = link_to t('Download flight'), flight_path(@flight.id, :format => "pdf")
 '
 '|

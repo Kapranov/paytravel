@@ -27,22 +27,34 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: Rails.application.secrets.domain_name,
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password
-  }
+  #config.action_mailer.smtp_settings = {
+  #  address: "smtp.gmail.com",
+  #  port: 587,
+  #  domain: Rails.application.secrets.domain_name,
+  #  authentication: "plain",
+  #  enable_starttls_auto: true,
+  #  user_name: Rails.application.secrets.email_provider_username,
+  #  password: Rails.application.secrets.email_provider_password
+  #}
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
+  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.raise_delivery_errors = true
   # Send email in development mode?
-  config.action_mailer.perform_deliveries = true
+  #config.action_mailer.perform_deliveries = true
 
+  config.action_mailer.default_url_options = {:host => 'localhost:80'}
+  # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "mail.adamant.ua",
+    :port    => 25,
+    :domain  => 'travelonline.com.ua',
+    :enable_starttls_auto => true
+  }
+
+  # config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.

@@ -30,6 +30,8 @@ class FlightsController < ApplicationController
 
     respond_to do |format|
       if @flight.save
+        # Tell the UserMailer to send a welcome email after save
+        # FlightsMailer.report_email(@flight).deliver_later
         format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
       else
@@ -61,6 +63,11 @@ class FlightsController < ApplicationController
       format.html { redirect_to flights_url, notice: 'Flight was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def mail_send
+    @mail = NoticeMailer.sendmail_confirm.deliver
+    render :text => 'God Bless USA! send finish'
   end
 
   private

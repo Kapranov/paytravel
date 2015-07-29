@@ -6,6 +6,12 @@ p
     | :
     '
   = @tour.name
+p
+  strong
+    = t('Create at')
+    | :
+    '
+  = local_time(@tour.created_at, '%B %e, %Y')
 
 p
   strong
