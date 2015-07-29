@@ -11,9 +11,9 @@ class FlightsController < ApplicationController
       format.html
       format.pdf do
          pdf = FlightPdf.new(@flight, view_context)
-         send_data pdf.render, filename:
-         "flight_#{@flight.created_at.strftime("%d/%m/%Y")}.pdf",
-         type: "application/pdf", disposition: "inline"
+         send_data pdf.render,
+           filename: "flight_#{@flight.created_at.strftime("%d/%m/%Y")}.pdf",
+           type: "application/pdf", disposition: "inline"
       end
     end
   end

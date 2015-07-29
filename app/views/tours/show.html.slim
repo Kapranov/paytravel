@@ -53,6 +53,10 @@ p
     '
   = @tour.name_telephone
 
+= link_to t('Download tour'), tour_path(@tour.id, :format => "pdf")
+'
+'|
+'
 = link_to t('Edit'), edit_tour_path(@tour)
 '
 '|

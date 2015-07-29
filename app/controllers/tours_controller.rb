@@ -1,28 +1,30 @@
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
 
-  # GET /tours
-  # GET /tours.json
   def index
     @tours = Tour.all
   end
 
-  # GET /tours/1
-  # GET /tours/1.json
   def show
+    @tour = Tour.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+         pdf = TourPdf.new(@tour, view_context)
+         send_data pdf.render,
+           filename: "tour_#{@tour.created_at.strftime("%d/%m/%Y")}.pdf",
+           type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
-  # GET /tours/new
   def new
     @tour = Tour.new
   end
 
-  # GET /tours/1/edit
   def edit
   end
 
-  # POST /tours
-  # POST /tours.json
   def create
     @tour = Tour.new(tour_params)
 
@@ -37,8 +39,6 @@ class ToursController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tours/1
-  # PATCH/PUT /tours/1.json
   def update
     respond_to do |format|
       if @tour.update(tour_params)
@@ -51,8 +51,6 @@ class ToursController < ApplicationController
     end
   end
 
-  # DELETE /tours/1
-  # DELETE /tours/1.json
   def destroy
     @tour.destroy
     respond_to do |format|
@@ -62,12 +60,10 @@ class ToursController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_tour
       @tour = Tour.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tour_params
       params.require(:tour).permit(
         :firstName,
