@@ -1,17 +1,16 @@
-h1 Listing tours
+h1 = t('Listing tours')
 
 table
   thead
     tr
-      th Contract
-      th Firstname
-      th Lastname
-      th Sum
+      th = t('Contract')
+      th = t('fullName')
+      th = t('Sum')
       th = t('Percent')
-      th Commission
-      th Totalamount
-      th Email
-      th Telephone
+      th = t('Commission')
+      th = t('Totalamount')
+      th = t('email')
+      th = t('Telephone')
       th
       th
       th
@@ -19,19 +18,21 @@ table
   tbody
     - @tours.each do |tour|
       tr
-        td = tour.contract
-        td = tour.firstName
-        td = tour.lastName
+        td = tour.name
+        td = tour.fullName
         td = tour.sum
-        td = tour.percent
+        td
+          - if tour.percent
+            a 1.5%
+          - else
+            a 2%
         td = tour.commission
         td = tour.totalAmount
         td = tour.email
-        td = tour.telephone
-        td = link_to 'Show', tour
-        td = link_to 'Edit', edit_tour_path(tour)
-        td = link_to 'Destroy', tour, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = tour.name_telephone
+        td = link_to t('Show'), tour
+        td = link_to t('Edit'), edit_tour_path(tour)
 
 br
 
-= link_to 'New Tour', new_tour_path
+= link_to t('New Tour'), new_tour_path

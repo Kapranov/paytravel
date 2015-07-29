@@ -2,15 +2,33 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :contract
-    = f.input :firstName
-    = f.input :lastName
-    = f.input :sum, value: "%.2f" % f.object.sum.to_f
-    = f.input :percent
-    = f.input :commission, value: "%.2f" % f.object.commission.to_f
-    = f.input :totalAmount, value: "%.2f" % f.object.totalAmount.to_f
-    = f.input :email
-    = f.input :telephone
+    = f.input :lastName, label: t('lastName'), include_blank: false
+    = f.input :firstName, label: t('firstName'), include_blank: false
+    = f.input :sum, label: t('Sum'), value: "%.2f" % f.object.sum.to_f
+    '
+    - if @tour.percent
+      h5
+        b = t('Your choose percent one')
+    - elsif @tour.percent.nil?
+      h5
+        b = t('Your choose percent zero')
+    - else
+      h5
+        b = t('Your choose percent two')
+    '
+    b
+      = t('Percent')
+      | :
+      '
+    = f.radio_button :percent, 1
+    '
+    = f.label :true, t('percentOne')
+    '
+    = f.radio_button :percent, 0
+    '
+    = f.label :true, t('percentTwo')
+    = f.input :email, label: t('email')
+    = f.input :telephone, label: t('Telephone')
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, t('Save')

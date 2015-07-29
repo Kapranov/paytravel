@@ -1,1 +1,1 @@
-json.extract! @tour, :id, :contract, :firstName, :lastName, :sum, :percent, :commission, :totalAmount, :email, :telephone, :created_at, :updated_at
+json.extract! @tour, :id, :firstName, :lastName, :sum, :percent, :commission, :totalAmount, :email, :telephone, :created_at, :updated_at

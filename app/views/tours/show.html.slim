@@ -1,33 +1,60 @@
 p#notice = notice
 
 p
-  strong Contract:
-  = @tour.contract
+  strong
+    = t('Contract')
+    | :
+    '
+  = @tour.name
+
 p
-  strong Firstname:
-  = @tour.firstName
+  strong
+    = t('fullName')
+    | :
+    '
+  = @tour.fullName
 p
-  strong Lastname:
-  = @tour.lastName
-p
-  strong Sum:
+  strong
+    = t('Sum')
+    | :
+    '
   = @tour.sum
 p
   strong
-  = @tour.percent
+    = t('Percent')
+    | :
+    '
+  - if @tour.percent
+    a 1.5%
+  - else
+    a 2%
 p
-  strong Commission:
+  strong
+    = t('Commission')
+    | :
+    '
   = @tour.commission
 p
-  strong Totalamount:
+  strong
+    = t('Totalamount')
+    |
+    '
   = @tour.totalAmount
 p
-  strong Email:
+  strong
+    = t('email')
+    | :
+    '
   = @tour.email
 p
-  strong Telephone:
-  = @tour.telephone
+  strong
+    = t('Telephone')
+    | :
+    '
+  = @tour.name_telephone
 
-= link_to 'Edit', edit_tour_path(@tour)
+= link_to t('Edit'), edit_tour_path(@tour)
+'
 '|
-= link_to 'Back', tours_path
+'
+= link_to t('Back'), tours_path

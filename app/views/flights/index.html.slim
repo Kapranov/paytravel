@@ -1,11 +1,10 @@
-h1 Listing flights
+h1 = t('Listing flights')
 
 table
   thead
     tr
       th = t('Contract')
-      th = t('lastName')
-      th = t('firstName')
+      th = t('fullName')
       th = t('Sum')
       th = t('Percent')
       th = t('Commission')
@@ -20,8 +19,7 @@ table
     - @flights.each do |flight|
       tr
         td = flight.name
-        td = flight.lastName
-        td = flight.firstName
+        td = flight.fullName
         td = flight.sum
         td
           - if flight.percent

@@ -40,6 +40,10 @@ class Flight < ActiveRecord::Base
     'A-' + id.to_s.rjust(6, '0')
   end
 
+  def fullName
+    lastName + " " + firstName
+  end
+
   private
     def total
       (unit_price * quantity).round(2)

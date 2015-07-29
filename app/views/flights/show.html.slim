@@ -9,16 +9,10 @@ p
 
 p
   strong
-    = t('lastName')
+    = t('fullName')
     | :
     '
-  = @flight.lastName
-p
-  strong
-    = t('firstName')
-    | :
-    '
-  = @flight.firstName
+  = @flight.fullName
 p
   strong
     = t('Sum')
