@@ -1,5 +1,6 @@
 class Flight < ActiveRecord::Base
   before_save :update_commission
+  before_save :update_totalAmount
 
   validates :firstName, :lastName, :email, :telephone, presence: true
   validates :sum, presence: true,

@@ -47,7 +47,7 @@ Rails.application.configure do
   # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "mail.adamant.ua",
+    :address => "mail.adamant.net",
     :port    => 25,
     :domain  => 'travelonline.com.ua',
     :enable_starttls_auto => true

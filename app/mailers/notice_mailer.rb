@@ -8,6 +8,6 @@ class NoticeMailer < ApplicationMailer
   def sendmail_confirm
     @greeting = "Hi"
 
-    mail to: "lugatex@yahoo.com", subject: "ActionMailer test"
+    mail to: "pay@travelonline.com.ua", subject: "This letter from Paytravel Report"
   end
 end
