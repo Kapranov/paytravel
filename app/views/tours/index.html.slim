@@ -4,7 +4,6 @@ table
   thead
     tr
       th = t('Contract')
-      th = t('Create at')
       th = t('fullName')
       th = t('Sum')
       th = t('Percent')
@@ -12,6 +11,7 @@ table
       th = t('Totalamount')
       th = t('email')
       th = t('Telephone')
+      th = t('Create at')
       th
       th
       th
@@ -19,19 +19,20 @@ table
   tbody
     - @tours.each do |tour|
       tr
-        td = tour.name
-        td = tour.created_at.strftime('%d/%m/%Y')
+        td = link_to tour.name, tour
         td = tour.fullName
-        td = tour.sum
+        td = number_to_currency tour.sum.to_money.format
         td
           - if tour.percent
             a 1.5%
           - else
             a 2%
-        td = tour.commission
-        td = tour.totalAmount
-        td = tour.email
-        td = tour.name_telephone
+        td = number_to_currency tour.commission.to_money.format
+        td = number_to_currency tour.totalAmount.to_money.format
+        td = mail_to tour.email, nil, style: 'color:green;font-weight: bold'
+        td = tour.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
+        td = tour.created_at.strftime('%d/%m/%Y')
+        td = link_to 'PDF', tour_path(tour.id, :format => "pdf")
         td = link_to t('Show'), tour
         td = link_to t('Edit'), edit_tour_path(tour)
 

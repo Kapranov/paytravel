@@ -4,7 +4,6 @@ table
   thead
     tr
       th = t('Contract')
-      th = t('Create at')
       th = t('fullName')
       th = t('Sum')
       th = t('Percent')
@@ -12,6 +11,7 @@ table
       th = t('Totalamount')
       th = t('email')
       th = t('Telephone')
+      th = t('Create at')
       th
       th
       th
@@ -19,19 +19,20 @@ table
   tbody
     - @flights.each do |flight|
       tr
-        td = flight.name
-        td = flight.created_at.strftime('%d/%m/%Y')
+        td = link_to flight.name, flight
         td = flight.fullName
-        td = flight.sum
+        td = number_to_currency flight.sum.to_money.format
         td
           - if flight.percent
             a 1.5%
           - else
             a 2%
-        td = flight.commission
-        td = flight.totalAmount
-        td = flight.email
-        td = flight.name_telephone
+        td = number_to_currency flight.commission.to_money.format
+        td = number_to_currency flight.totalAmount.to_money.format
+        td = mail_to flight.email, nil, style: 'color:green;font-weight: bold'
+        td = flight.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
+        td = flight.created_at.strftime('%d/%m/%Y')
+        td = link_to 'PDF', flight_path(flight.id, :format => "pdf")
         td = link_to t('Show'), flight
         td = link_to t('Edit'), edit_flight_path(flight)
 

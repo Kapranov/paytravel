@@ -13,8 +13,9 @@ gem 'high_voltage'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'money-rails'
+gem 'phony_rails'
 gem 'prawn'
-gem 'local_time'
+
 
 group :development do
   gem 'better_errors'

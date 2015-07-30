@@ -24,7 +24,7 @@ p
     = t('Sum')
     | :
     '
-  = @tour.sum
+  = number_to_currency @tour.sum.to_money.format
 p
   strong
     = t('Percent')
@@ -39,25 +39,25 @@ p
     = t('Commission')
     | :
     '
-  = @tour.commission
+  = number_to_currency @tour.commission.to_money.format
 p
   strong
     = t('Totalamount')
     |
     '
-  = @tour.totalAmount
+  = number_to_currency @tour.totalAmount.to_money.format
 p
   strong
     = t('email')
     | :
     '
-  = @tour.email
+  = mail_to @tour.email, nil, style: 'color:green;font-weight: bold'
 p
   strong
     = t('Telephone')
     | :
     '
-  = @tour.name_telephone
+  = @tour.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
 
 
 = link_to t('Send Mail'), mail_send_tour_path(@tour)

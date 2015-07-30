@@ -24,7 +24,7 @@ p
     = t('Sum')
     | :
     '
-  = @flight.sum
+  = number_to_currency @flight.sum.to_money.format
 p
   strong
     = t('Percent')
@@ -39,25 +39,25 @@ p
     = t('Commission')
     | :
     '
-  = @flight.commission
+  = number_to_currency @flight.commission.to_money.format
 p
   strong
     = t('Totalamount')
     |
     '
-  = @flight.totalAmount
+  = number_to_currency @flight.totalAmount.to_money.format
 p
   strong
     = t('email')
     | :
     '
-  = @flight.email
+  = mail_to @flight.email, nil, style: 'color:green;font-weight: bold'
 p
   strong
     = t('Telephone')
     | :
     '
-  = @flight.name_telephone
+  = @flight.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
 
 = link_to t('Send Mail'), mail_send_flight_path(@flight)
 '

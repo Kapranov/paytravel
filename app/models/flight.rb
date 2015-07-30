@@ -2,6 +2,9 @@ class Flight < ActiveRecord::Base
   before_save :update_commission
   before_save :update_totalAmount
 
+  monetize :sum, :commission, :totalAmount, :with_currency => :gbp
+  phony_normalize :phone_number, :as => :phone_number_normalized_version, :default_country_code => 'UK'
+
   validates :firstName, :lastName, :email, :telephone, presence: true
   validates :sum, presence: true,
     numericality: { only_integer: false, greater_than: 0 },
@@ -44,6 +47,7 @@ class Flight < ActiveRecord::Base
   def fullName
     lastName + " " + firstName
   end
+
 
   private
     def total

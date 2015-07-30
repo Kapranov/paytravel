@@ -1,0 +1,36 @@
+uk:
+  simple_form:
+    "yes": 'Так'
+    "no": 'Ні'
+    required:
+      text: "обов'язкове"
+      mark: '*'
+    error_notification:
+      default_message: "Будь ласка, ознайомтеся з проблемами нижче:"
+    labels:
+      request_action:
+        name: Ім'я
+        email: Email
+        phone: Телефон
+        countries: Країна(-и)
+        response_type: Тип відповіді
+        subscribe: Чи бажаєте ви отримувати розсилки гарячих пропозицій на електронну пошту
+        node: Додаткові побажання
+        budget: Бюджет (на особу)
+        duration: Тривалість (ночей)
+        departure_date: Бажана дата виїзду
+        persons: Кількість осіб
+        adults: Дорослих
+        childrens: Дітей
+        currency: Валюта
+        transports: Транспорт
+        tour_types: Тип туру
+        capcha: Порахуйте
+    hints:
+      request_action:
+        response_type: Як бажаєте отримати відповідь
+    placeholders:
+      request_action:
+        adults: Дорослих
+        childrens: Дітей
+        budget: Сума

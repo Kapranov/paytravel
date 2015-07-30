@@ -23,7 +23,7 @@ module Paytravel
     config.autoload_paths << "#{Rails.root}/app/reports"
     config.i18n.fallbacks = true
     config.time_zone = 'Kyiv'
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :uk
     config.active_record.timestamped_migrations = false
     config.active_record.raise_in_transactional_callbacks = true
   end

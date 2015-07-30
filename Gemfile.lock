@@ -78,15 +78,12 @@ GEM
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
-    coffee-rails (4.1.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     columnize (0.9.0)
+    countries (0.11.5)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
+    currencies (0.4.2)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.5.1)
@@ -112,7 +109,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    guard (2.12.9)
+    guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
       lumberjack (~> 1.0)
@@ -136,6 +133,7 @@ GEM
     high_voltage (2.4.0)
     hub (1.12.4)
     i18n (0.7.0)
+    i18n_data (0.7.0)
     interception (0.5)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -150,8 +148,6 @@ GEM
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    local_time (1.0.2)
-      coffee-rails
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
@@ -177,14 +173,19 @@ GEM
     net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    notiffany (0.0.6)
+    notiffany (0.0.7)
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    passenger (5.0.14)
+    passenger (5.0.15)
       rack
       rake (>= 0.8.1)
     pdf-core (0.6.0)
+    phony (2.14.13)
+    phony_rails (0.12.9)
+      activesupport (>= 3.0)
+      countries (~> 0.11, >= 0.11.5)
+      phony (~> 2.12)
     prawn (2.0.2)
       pdf-core (~> 0.6.0)
       ttfunk (~> 1.4.0)
@@ -264,7 +265,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    selenium-webdriver (2.46.2)
+    selenium-webdriver (2.47.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
@@ -344,9 +345,9 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-  local_time
   money-rails
   passenger
+  phony_rails
   prawn
   pry-rails
   pry-rescue

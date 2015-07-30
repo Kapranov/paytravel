@@ -2,9 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :lastName, label: t('lastName'), include_blank: false
-    = f.input :firstName, label: t('firstName'), include_blank: false
-    = f.input :sum, label: t('Sum'), value: "%.2f" % f.object.sum.to_f
+    = f.input :lastName, label: t('lastName'), include_blank: false, placeholder: t('placeholder_lastName')
+    = f.input :firstName, label: t('firstName'), include_blank: false, placeholder: t('placeholder_firstName')
+    = f.input :sum, label: t('Sum'), value: "%.2f" % f.object.sum.to_f, placeholder: t('placeholder_sum')
     '
     - if @flight.percent
       h5
@@ -27,11 +27,11 @@
     = f.radio_button :percent, 0
     '
     = f.label :true, t('percentTwo')
-    = f.input :email, label: t('email')
+    = f.input :email, label: t('email'), placeholder: t('placeholder_email')
     - if @flight.telephone.nil?
-      = f.input :telephone, label: t('Telephone')
+      = f.input :telephone, label: t('Telephone'), placeholder: t('placeholder_telephone')
     - else
-      = f.input :name_telephone, label: t('Telephone')
+      = f.input :name_telephone, label: t('Telephone'), placeholder: t('placeholder_telephone')
 
   .form-actions
     = f.button :submit, t('Save')
