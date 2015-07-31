@@ -46,8 +46,6 @@ class FlightsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /flights/1
-  # PATCH/PUT /flights/1.json
   def update
     respond_to do |format|
       if @flight.update(flight_params)
@@ -60,8 +58,6 @@ class FlightsController < ApplicationController
     end
   end
 
-  # DELETE /flights/1
-  # DELETE /flights/1.json
   def destroy
     @flight.destroy
     respond_to do |format|
