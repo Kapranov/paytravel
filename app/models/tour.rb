@@ -7,11 +7,11 @@ class Tour < ActiveRecord::Base
 
   validates_presence_of :firstName, :lastName, :email, :telephone
 
-  # validates :firstName, format: { with: /\A[a-zA-ZА-Яа-я]+\z/,
-  #   minimum: 4, maximum: 15, message: "only allows letters" }
+  validates :firstName, format: { with: /\A[А-Яа-яІіЇїЄєҐґ]+\z/,
+    minimum: 4, maximum: 15, message: "only allows letters" }
 
-  # validates :lastName, format: { with: /\A[a-zA-ZА-Яа-я]+\z/,
-  #   minimum: 4, maximum: 15, message: "only allows letters" }
+  validates :lastName, format: { with: /\A[А-Яа-яІіЇїЄєҐґ]+\z/,
+    minimum: 4, maximum: 15, message: "only allows letters" }
 
   validates :sum, numericality: {only_integer: true, greater_than: 0 }
 
@@ -42,7 +42,7 @@ class Tour < ActiveRecord::Base
   end
 
   def name
-    'A-' + id.to_s.rjust(6, '0')
+    'T-' + id.to_s.rjust(6, '0')
   end
 
   def fullName
