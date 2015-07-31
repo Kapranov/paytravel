@@ -15,6 +15,7 @@ class Flight < ActiveRecord::Base
 
   validates :sum, numericality: {only_integer: true, greater_than: 0 }
 
+  # validates_format_of :email, with: /\A(\S+)@(\S+)\.(\S+)\z/i
   validates_format_of :email, with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
 
   validates :percent, :inclusion => { :in => [true, false] }

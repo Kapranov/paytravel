@@ -68,8 +68,9 @@ class ToursController < ApplicationController
   end
 
   def mail_send
-    @mail = TourMailer.report_email.deliver
-    render :text => 'Tours order has been sent!'
+    @tour = Tour.find(params[:id])
+    @mail = TourMailer.report_email(@tour).deliver_now
+    render :text => 'Tour order has been sent!'
   end
 
   private
