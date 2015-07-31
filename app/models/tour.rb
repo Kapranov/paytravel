@@ -2,6 +2,9 @@ class Tour < ActiveRecord::Base
   before_save :update_commission
   before_save :update_totalAmount
 
+  monetize :sum, :commission, :totalAmount, :with_currency => :gbp
+  phony_normalize :telephone, :default_country_code => 'UK'
+
   validates_presence_of :firstName, :lastName, :email, :telephone
   validates :sum, presence: true,
     numericality: { only_integer: false, greater_than: 0 },

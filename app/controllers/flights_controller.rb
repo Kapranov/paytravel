@@ -67,7 +67,7 @@ class FlightsController < ApplicationController
 
   def mail_send
     @mail = FlightMailer.report_email.deliver
-    render :text => 'Flights order has beeb send!'
+    render :text => 'Flights order has been sent!'
   end
 
   private

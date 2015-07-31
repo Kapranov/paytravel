@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
+  after_action :mail_sending, only: [:create]
 
   def index
     @tours = Tour.all
@@ -62,7 +63,7 @@ class ToursController < ApplicationController
 
   def mail_send
     @mail = TourMailer.report_email.deliver
-    render :text => 'Tours order has beeb send!'
+    render :text => 'Tours order has been sent!'
   end
 
   private
@@ -81,5 +82,9 @@ class ToursController < ApplicationController
         :email,
         :telephone
       )
+    end
+
+    def mail_sending
+      TourMailer.report_email(@tour).deliver_now
     end
 end

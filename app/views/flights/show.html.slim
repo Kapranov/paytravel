@@ -59,7 +59,7 @@ p
     '
   = @flight.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
 
-= link_to t('Send Mail'), mail_send_flight_path(@flight)
+/= link_to t('Send Mail'), mail_send_flight_path(@flight)
 '
 '|
 '

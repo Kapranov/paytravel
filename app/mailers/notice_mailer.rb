@@ -8,6 +8,6 @@ class NoticeMailer < ApplicationMailer
   def sendmail_confirm
     @greeting = "Hi"
 
-    mail to: "pay@travelonline.com.ua", subject: "This letter from Paytravel Report"
+    mail to: "lugatex@yahoo.com", subject: "This letter from Paytravel Report #{Time.zone.now.strftime("%H:%M:%S %d/%m/%Y")}"
   end
 end

@@ -3,7 +3,7 @@ class Flight < ActiveRecord::Base
   before_save :update_totalAmount
 
   monetize :sum, :commission, :totalAmount, :with_currency => :gbp
-  phony_normalize :phone_number, :as => :phone_number_normalized_version, :default_country_code => 'UK'
+  phony_normalize :telephone, :default_country_code => 'UK'
 
   validates_presence_of :firstName, :lastName, :email, :telephone
   validates :sum, presence: true,
