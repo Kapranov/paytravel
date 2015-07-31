@@ -2,7 +2,7 @@ class Tour < ActiveRecord::Base
   before_save :update_commission
   before_save :update_totalAmount
 
-  validates :firstName, :lastName, :email, :telephone, presence: true
+  validates_presence_of :firstName, :lastName, :email, :telephone
   validates :sum, presence: true,
     numericality: { only_integer: false, greater_than: 0 },
     format: { :with => /\A\d{1,6}(\.\d{0,2})?\z/ }
@@ -12,7 +12,7 @@ class Tour < ActiveRecord::Base
   validates :totalAmount, presence: true,
     numericality: { only_integer: false, greater_than: 0 },
     format: { :with => /\A\d{1,6}(\.\d{0,2})?\z/ }
-
+  validates_format_of :email, :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
   validates :percent, :inclusion => { :in => [true, false] }
   validates :percent, :presence => { :if => 'percent.nil?' }
 

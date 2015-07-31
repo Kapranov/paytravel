@@ -30,6 +30,7 @@ class ToursController < ApplicationController
 
     respond_to do |format|
       if @tour.save
+        TourMailer.report_email(@tour).deliver_now
         format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
         format.json { render :show, status: :created, location: @tour }
       else
@@ -60,8 +61,8 @@ class ToursController < ApplicationController
   end
 
   def mail_send
-    @mail = NoticeMailer.sendmail_confirm.deliver
-    render :text => 'God Bless USA! send finish'
+    @mail = TourMailer.report_email.deliver
+    render :text => 'Tours order has beeb send!'
   end
 
   private

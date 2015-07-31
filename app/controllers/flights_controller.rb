@@ -1,5 +1,7 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  after_action :mail_sending, only: [:create]
+
 
   def index
     @flights = Flight.all
@@ -64,8 +66,8 @@ class FlightsController < ApplicationController
   end
 
   def mail_send
-    @mail = NoticeMailer.sendmail_confirm.deliver
-    render :text => 'God Bless USA! send finish'
+    @mail = FlightMailer.report_email.deliver
+    render :text => 'Flights order has beeb send!'
   end
 
   private
@@ -86,5 +88,9 @@ class FlightsController < ApplicationController
         :email,
         :telephone
       )
+    end
+
+    def mail_sending
+      FlightMailer.report_email(@flight).deliver_now
     end
 end
