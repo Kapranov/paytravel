@@ -51,7 +51,7 @@ uk:
   terminal_easypay8: " сума транзакцій складає від 1 000,00 до 4 999,00 грн."
   placeholder_firstName: "на приклад Юрій"
   placeholder_lastName: "на приклад Арлінський"
-  placeholder_sum: "на приклад 9999.99"
+  placeholder_sum: "на приклад 9999 Тільки ціле число"
   placeholder_email: "на приклад pay@example.com"
   placeholder_telephone: "на приклад 0111111111"
   date:

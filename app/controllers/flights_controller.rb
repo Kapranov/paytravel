@@ -1,7 +1,6 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
-  after_action :mail_sending, only: [:create]
-
+  # after_action :mail_sending, only: [:create]
 
   def index
     @flights = Flight.all
@@ -34,6 +33,12 @@ class FlightsController < ApplicationController
       if @flight.save
         format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
+        if @flight.valid?
+          FlightMailer.report_email(@flight).deliver_now
+        else
+          flash.now.alert = "Please fill all fields."
+          render :new
+        end
       else
         format.html { render :new }
         format.json { render json: @flight.errors, status: :unprocessable_entity }
@@ -71,12 +76,10 @@ class FlightsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_flight
       @flight = Flight.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def flight_params
       params.require(:flight).permit(
         :firstName,

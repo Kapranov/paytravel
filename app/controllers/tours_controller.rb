@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
-  after_action :mail_sending, only: [:create]
+  # after_action :mail_sending, only: [:create]
 
   def index
     @tours = Tour.all
@@ -34,6 +34,12 @@ class ToursController < ApplicationController
         TourMailer.report_email(@tour).deliver_now
         format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
         format.json { render :show, status: :created, location: @tour }
+        if @tour.valid?
+          TourMailer.report_email(@tour).deliver_now
+        else
+          flash.now.alert = "Please fill all fields."
+          render :new
+        end
       else
         format.html { render :new }
         format.json { render json: @tour.errors, status: :unprocessable_entity }
