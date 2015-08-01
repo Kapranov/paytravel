@@ -4,6 +4,12 @@ class ToursController < ApplicationController
 
   def index
     @tours = Tour.all
+    @tours = Tour.search(params[:search])
+    if @tours.class == Array
+      @tours = Kaminari.paginate_array(@tours).page(params[:page]).per(3)
+    else
+      @tours = @tours.page(params[:page]).per(15)
+    end
   end
 
   def show

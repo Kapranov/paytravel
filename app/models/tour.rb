@@ -50,6 +50,10 @@ class Tour < ActiveRecord::Base
     lastName + " " + firstName
   end
 
+  def self.search search
+    where("id || email || telephone LIKE ?", "%#{search}%")
+  end
+
   # def total
   #  (unit_price * quantity).round(2)
   # end

@@ -4,6 +4,12 @@ class FlightsController < ApplicationController
 
   def index
     @flights = Flight.all
+    @flights = Flight.search(params[:search])
+    if @flights.class == Array
+      @flights = Kaminari.paginate_array(@flights).page(params[:page]).per(3)
+    else
+      @flights = @flights.page(params[:page]).per(15)
+    end
   end
 
   def show

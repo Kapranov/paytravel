@@ -54,6 +54,8 @@ uk:
   placeholder_sum: "на приклад 9999 Тільки ціле число"
   placeholder_email: "на приклад pay@example.com"
   placeholder_telephone: "на приклад 0111111111"
+  search_flights: "Пошук авіа заявок"
+  search_tours: "Пошук заявок по турам"
   date:
     abbr_day_names:
     - нд.
