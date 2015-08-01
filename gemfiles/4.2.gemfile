@@ -18,6 +18,7 @@ gem 'prawn'
 gem 'ransack'
 gem 'kaminari'
 gem 'friendly_id'
+gem 'babosa'
 
 group :development do
   gem 'better_errors'

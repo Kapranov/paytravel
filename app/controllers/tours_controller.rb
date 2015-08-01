@@ -13,7 +13,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    @tour = Tour.find(params[:id])
+    @tour = Tour.friendly.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
@@ -79,7 +79,7 @@ class ToursController < ApplicationController
   end
 
   def mail_send
-    @tour = Tour.find(params[:id])
+    @tour = Tour.friendly.find(params[:id])
     @mail = TourMailer.report_email(@tour).deliver_now
     render :text => 'Tour order has been sent!'
   end

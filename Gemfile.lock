@@ -41,6 +41,7 @@ GEM
     autoprefixer-rails (5.2.1.1)
       execjs
       json
+    babosa (1.0.2)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -336,6 +337,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  babosa
   better_errors
   bootstrap-sass
   byebug

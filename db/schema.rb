@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 7) do
     t.string   "slug"
   end
 
+  add_index "flights", ["slug"], name: "index_flights_on_slug"
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -53,6 +55,8 @@ ActiveRecord::Schema.define(version: 7) do
     t.datetime "updated_at",                           null: false
     t.string   "slug"
   end
+
+  add_index "tours", ["slug"], name: "index_tours_on_slug"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

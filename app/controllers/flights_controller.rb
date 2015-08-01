@@ -13,7 +13,7 @@ class FlightsController < ApplicationController
   end
 
   def show
-    @flight = Flight.find(params[:id])
+    @flight = Flight.friendly.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
@@ -78,7 +78,7 @@ class FlightsController < ApplicationController
   end
 
   def mail_send
-    @flight = Flight.find(params[:id])
+    @flight = Flight.friendly.find(params[:id])
     @mail = FlightMailer.report_email(@flight).deliver_now
     render :text => 'Flights order has been sent!'
   end

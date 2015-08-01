@@ -1,6 +1,8 @@
+require "babosa"
+
 class Tour < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :id, use: :slugged
+  friendly_id :lastName, use: :slugged
   before_save :update_commission
   before_save :update_totalAmount
 
@@ -25,6 +27,10 @@ class Tour < ActiveRecord::Base
 
   validates :telephone, length: { is: 9 }, numericality: { only_integer: true }
   validates_format_of :telephone, with: /\A[+-]?\d+\Z/
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :ukrainian).to_s
+  end
 
   def commission
     if percent == true
