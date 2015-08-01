@@ -30,6 +30,7 @@ class FlightsController < ApplicationController
   end
 
   def edit
+    @flight = Flight.friendly.find(params[:id])
   end
 
   def create
@@ -53,6 +54,8 @@ class FlightsController < ApplicationController
   end
 
   def update
+    @flight = Flight.friendly.find(params[:id])
+
     respond_to do |format|
       if @flight.update(flight_params)
         format.html { redirect_to @flight, notice: 'Flight was successfully updated.' }
@@ -65,6 +68,8 @@ class FlightsController < ApplicationController
   end
 
   def destroy
+    @flight = Flight.friendly.find(params[:id])
+
     @flight.destroy
     respond_to do |format|
       format.html { redirect_to flights_url, notice: 'Flight was successfully destroyed.' }
@@ -80,7 +85,7 @@ class FlightsController < ApplicationController
 
   private
     def set_flight
-      @flight = Flight.find(params[:id])
+      @flight = Flight.friendly.find(params[:id])
     end
 
     def flight_params

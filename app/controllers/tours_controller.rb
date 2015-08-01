@@ -30,6 +30,7 @@ class ToursController < ApplicationController
   end
 
   def edit
+    @tour = Tour.friendly.find(params[:id])
   end
 
   def create
@@ -54,6 +55,8 @@ class ToursController < ApplicationController
   end
 
   def update
+    @tour = Tour.friendly.find(params[:id])
+
     respond_to do |format|
       if @tour.update(tour_params)
         format.html { redirect_to @tour, notice: 'Tour was successfully updated.' }
@@ -66,6 +69,8 @@ class ToursController < ApplicationController
   end
 
   def destroy
+    @tour = Tour.friendly.find(params[:id])
+
     @tour.destroy
     respond_to do |format|
       format.html { redirect_to tours_url, notice: 'Tour was successfully destroyed.' }
@@ -81,7 +86,7 @@ class ToursController < ApplicationController
 
   private
     def set_tour
-      @tour = Tour.find(params[:id])
+      @tour = Tour.friendly.find(params[:id])
     end
 
     def tour_params

@@ -1,4 +1,6 @@
 class Tour < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :id, use: :slugged
   before_save :update_commission
   before_save :update_totalAmount
 
