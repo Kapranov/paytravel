@@ -1,0 +1,18 @@
+.middle-box.text-center.loginscreen.animated.fadeInDown
+  .authform
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart:true, role: 'form', method: :post}) do |f|
+      = f.error_notification
+      div
+        h1.logo-name Pay Travel
+      h3 = t('Forgot your password')
+      = devise_error_messages!
+      .form-group
+        = f.email_field :email, required: true, autofocus: true, class: 'form-control', placeholder: t('Email')
+      .form-group
+        = f.submit t('Send me reset password instructions'), class: 'btn btn-primary block full-width m-b  right'
+    p.m-t
+      small = mail_to 'lugatex@yahoo.com', 'LugaTeX'
+      '
+      | #{t('we app framework')}
+      '
+      | &copy; 2015

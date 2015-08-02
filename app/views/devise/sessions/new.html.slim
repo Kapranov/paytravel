@@ -1,0 +1,31 @@
+.middle-box.text-center.loginscreen.animated.fadeInDown
+  .authform
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f|
+      div
+        h1.logo-name Pay Travel
+      h3 Travelonline.com.ua
+      p = t('Please login in')
+      = devise_error_messages!
+      .form-group
+        = f.email_field :email, :autofocus => true, class: 'form-control', placeholder: t('Username')
+      .form-group
+        = f.password_field :password, class: 'form-control', placeholder: t('Password')
+      = f.submit t('Login'), :class => 'btn btn-primary block full-width m-b'
+        - if devise_mapping.rememberable?
+          .checkbox[style="width:150px"]
+            label
+              = f.check_box :remember_me, as: :boolean if devise_mapping.rememberable?
+      .form-group
+        - if devise_mapping.recoverable?
+          small
+            = link_to t('Forgot password'), new_password_path(resource_name), class: 'right'
+          p.text-muted.text-center
+            small = t('Do not have an account')
+          small
+            = link_to t('Create an account'), new_registration_path(resource_name), class: 'btn btn-sm btn-white btn-block'
+    p.m-t
+      small = mail_to 'lugatex@yahoo.com', 'LugaTeX'
+      '
+      | #{t('we app framework')}
+      '
+      | &copy; 2015

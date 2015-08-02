@@ -5,8 +5,8 @@ html
     title
       = content_for?(:title) ? yield(:title) : 'Pay Travel'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Pay Travelonline'}"
-    == stylesheet_link_tag "error", :media => 'all'
-    == javascript_include_tag 'error'
+    == stylesheet_link_tag "authorization", :media => 'all'
+    == javascript_include_tag 'authorization'
     == csrf_meta_tags
-  body.gray-bg
+  body.gray-bg.pace-done
     = yield

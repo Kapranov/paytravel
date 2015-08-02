@@ -4,6 +4,7 @@ uk:
       not_found: "не знайдено"
       already_confirmed: "вже підтверджено"
       not_locked: "не було заблоковано"
+      not_saved: "не зберігаеться"
 
   devise:
     failure:

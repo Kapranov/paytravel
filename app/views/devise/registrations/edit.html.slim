@@ -1,0 +1,39 @@
+.middle-box2.text-center.loginscreen.animated.fadeInDown
+  .authform
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, role: 'form'}) do |f|
+      = f.error_notification
+      div
+        h1.logo-name FnF
+      h3
+        = t('Edit profile')
+        '
+        = resource_name.to_s.humanize
+      = devise_error_messages!
+      #avatar
+      - if @user.avatar_id?
+        = image_tag attachment_url(@user, :avatar, :fill, 100, 100), class: 'img-circle img-thumbnail'
+        br
+        =f.input :remove_avatar, :label => t('Remove avatar'),  :as => :boolean, :label_html => { :class => "pull-center dispo" }
+      - else
+        = image_tag 'images.png', size: "120", class: "img-circle img-thumbnail"
+      .form-group
+        = f.label :avatar, t('Your avatar')
+        = f.attachment_field :avatar, direct: true
+      .form-group
+        = f.text_field :name, required: true, autofocus: true, class: 'form-control', placeholder: t('Your surname')
+      .form-group
+        = f.email_field :email, required: true, autofocus: true, class: 'form-control', placeholder: t('Email')
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          p = t('Currently waiting')
+          '
+          = resource.unconfirmed_email
+      .form-group
+        = f.password_field :password, class: 'form-control', autocomplete: "off", placeholder: t('Password'), required: false, hint: t('Leave it blank')
+      .form-group
+        = f.password_field :password_confirmation, required: false, class: 'form-control', placeholder: t('Password confirmation')
+      .form-group
+        = f.password_field :current_password, class: 'form-control', autocomplete: "off", placeholder: t('Current password'), hint: t('We need your current'), required: true
+      = f.submit t('Update'), class: 'btn btn-primary block full-width m-b  right'
+
+  = link_to t('Cancel my account'), registration_path(resource_name), data: { confirm: t('Are you sure') }, method: :delete, class: 'btn btn-primary block full-width m-b  right'
+  = link_to t('Back'), :back, class: 'btn btn-primary block full-width m-b  right'
