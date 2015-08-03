@@ -1,5 +1,15 @@
-h1 = t('New flight')
+= render 'layouts/dashboard_top_links'
+.row.wrapper.border-bottom.white-bg.page-heading2
+  .col-lg-8
+    h2 = t('New flight')
+    ol.breadcrumb
+      li
+        a[href="#{url_for :controller => 'flights', :action => 'index'}"] = t('Flights')
+      li.active
+        strong = t('Create flight')
+  .col-lg-3
+    .title-action
+      = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-arrow-left fa-2x'></i></button>".html_safe,flights_path
+  .col-lg-1
 
 == render 'form'
-
-= link_to t('Back'), flights_path

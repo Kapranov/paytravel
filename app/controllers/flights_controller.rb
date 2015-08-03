@@ -1,6 +1,7 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
   # after_action :mail_sending, only: [:create]
+  layout 'dashboard'
 
   def index
     @flights = Flight.all

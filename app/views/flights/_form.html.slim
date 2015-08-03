@@ -1,37 +1,36 @@
-= simple_form_for(@flight) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :lastName, label: t('lastName'), include_blank: false, placeholder: t('placeholder_lastName')
-    = f.input :firstName, label: t('firstName'), include_blank: false, placeholder: t('placeholder_firstName')
-    = f.input :sum, label: t('Sum'), value: "%.2f" % f.object.sum.to_f, placeholder: t('placeholder_sum')
-    '
-    - if @flight.percent
-      h5
-        b = t('Your choose percent one')
-    - elsif @flight.percent.nil?
-      h5
-        b = t('Your choose percent zero')
-    - else
-      h5
-        b = t('Your choose percent two')
-    '
-    b
-      = t('Percent')
-      | :
-      '
-    = f.radio_button :percent, 1
-    '
-    = f.label :true, t('percentOne')
-    '
-    = f.radio_button :percent, 0
-    '
-    = f.label :true, t('percentTwo')
-    = f.input :email, label: t('email'), placeholder: t('placeholder_email')
-    - if @flight.telephone.nil?
-      = f.input :telephone, label: t('Telephone'), placeholder: t('placeholder_telephone')
-    - else
-      = f.input :name_telephone, label: t('Telephone'), placeholder: t('placeholder_telephone')
-
-  .form-actions
-    = f.button :submit, t('Save')
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+  = simple_form_for(@flight) do |f|
+    = f.error_notification
+    .col-lg-8
+      .ibox.float-e-margins
+        .ibox-title
+        .ibox-content
+          .form-inputs
+            = f.input :lastName, label: t('lastName'), include_blank: false, placeholder: t('placeholder_lastName')
+            = f.input :firstName, label: t('firstName'), include_blank: false, placeholder: t('placeholder_firstName')
+            = f.input :sum, label: t('Sum'), value: "%.2f" % f.object.sum.to_f, placeholder: t('placeholder_sum')
+            - if @flight.percent
+              .badge.badge-danger = t('Your choose percent one')
+            - elsif @flight.percent.nil?
+              .badge.badge-danger = t('Your choose percent zero')
+            - else
+              .badge.badge-danger = t('Your choose percent two')
+            = f.radio_button :percent, 1
+            '
+            = f.label :true, t('percentOne')
+            '
+            = f.radio_button :percent, 0
+            '
+            = f.label :true, t('percentTwo')
+            = f.input :email, label: t('email'), placeholder: t('placeholder_email')
+            - if @flight.telephone.nil?
+              = f.input :telephone, label: t('Telephone'), placeholder: t('placeholder_telephone')
+            - else
+              = f.input :name_telephone, label: t('Telephone'), placeholder: t('placeholder_telephone')
+    .col-lg-4
+      .widget.p-lg.text-center
+        .form-actions
+          .m-b-md
+            i.fa.fa-save.fa-4x
+          = f.submit t('Save'), class: "btn btn-info dim"

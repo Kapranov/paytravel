@@ -18,7 +18,7 @@ class Flight < ActiveRecord::Base
   validates :lastName, format: { with: /\A[А-Яа-яІіЇїЄєҐґ]+\z/,
     minimum: 4, maximum: 15, message: "only allows letters" }
 
-  validates :sum, numericality: {only_integer: true, greater_than: 0 }
+  validates :sum, numericality: {only_integer: false, greater_than: 0 }
 
   # validates_format_of :email, with: /\A(\S+)@(\S+)\.(\S+)\z/i
   validates_format_of :email, with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i

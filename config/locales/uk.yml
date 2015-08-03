@@ -12,7 +12,7 @@ uk:
   Totalamount: "Загальна сума"
   email: "Поштова скринька"
   Telephone: "Телефон"
-  New Flight: "Створити"
+  New Flight: "Створити нову заявку"
   New Tour: "Створити"
   Save: "Зберегти"
   Show: "Показати"
@@ -25,7 +25,7 @@ uk:
   Home: "Головна"
   Users: "Користувачі: "
   registered: "Зареєстрований"
-  Flights: "Авіаквитки: "
+  Flights: "Авіаквитки "
   Tours: "Тури: "
   Sign in: "Увійти в систему"
   Sign up: "Зареєструватися"
@@ -80,6 +80,11 @@ uk:
   Login: "Ввійти"
   Send me reset password instructions: "Відправити мені інструкції"
   we app framework: "веб розробка"
+  Welcome to dashboard page: " Ласкаво просимо "
+  PDF: "Звіт"
+  Show information: "Повна інформація по заявки"
+  Create flight: "Нова заявка"
+  edit flight: "Редагувати"
   date:
     abbr_day_names:
     - нд.

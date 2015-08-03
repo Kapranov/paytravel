@@ -1,0 +1,22 @@
+.row.border-bottom.white-bg
+  nav.navbar.navbar-static-top[role="navigation"]
+    .navbar-header
+      button[aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"]
+      a.navbar-brand[href="#{url_for :controller => 'flights', :action => 'index'}"]
+        i.fa.fa-credit-card.size-16
+        '
+        | PayTravel
+    ul.nav.navbar-top-links.navbar-left[style="padding-top:15px; padding-left:20px"]
+      li
+        - if user_signed_in?
+          strong
+            span.m-r-sm.text-muted.welcome-message.size-11
+              = t('Welcome to dashboard page')
+              '
+              = current_user.name
+              '
+              span.m-r-sm.text-muted.welcome-message.size-8
+                = current_user.email
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        == render 'layouts/navigation_links'
