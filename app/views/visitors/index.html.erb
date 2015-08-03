@@ -37,10 +37,28 @@
 </div>
 <div class="row">
   <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="input-group">
+      <input class="input form-control" type="text" placeholder="<%= t('Search Client') %>"</input>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+          <i class="fa fa-search"></i>
+          <%= t('Search') %>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="col-lg-2"></div>
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col-lg-2"></div>
   <div class="col-lg-2">
     <div class="widget lazur-bg p-lg text-center">
       <div class="m-b-md">
-        <i class="fa fa-user fa-5x"></i>
+        <%= link_to '<i class="fa fa-user fa-5x"></i>'.html_safe, new_user_session_path, style: "color:white" %>
         <h3 class="m-xs"><%= t('Login') %></h3>
         </br>
         <small><%= t('Authorization') %></small>
@@ -50,11 +68,11 @@
   <div class="col-lg-2">
     <div class="widget lazur-bg p-lg text-center">
       <div class="m-b-md">
-        <i class="fa fa-plane fa-5x"></i>
+        <%= link_to '<i class="fa fa-plane fa-5x"></i>'.html_safe, flights_path, style: "color:white" %>
         <h3 class="m-xs"><%= t('Flight') %></h3>
         <h5 class="font-bold no-margins"><%= t('Flights') %></h5>
         <small>
-          <%= link_to t('Flights'), flights_path %> <%= Flight.count %>
+          <%= t('Flights') %> <%= Flight.count %>
         </small>
       </div>
     </div>
@@ -62,11 +80,11 @@
   <div class="col-lg-2">
     <div class="widget lazur-bg p-lg text-center">
       <div class="m-b-md">
-        <i class="fa fa-globe fa-5x"></i>
+        <%= link_to '<i class="fa fa-globe fa-5x"></i>'.html_safe, tours_path, style: "color:white" %>
         <h3 class="m-xs"><%= t('Tours') %></h3>
         <h5 class="font-bold no-margins"><%= t('Tour') %></h5>
         <small>
-          <%= link_to t('Tours'), tours_path %> <%= Tour.count %>
+          <%= t('Tours') %> <%= Tour.count %>
         </small>
       </div>
     </div>
@@ -74,10 +92,10 @@
   <div class="col-lg-2">
     <div class="widget lazur-bg p-lg text-center">
       <div class="m-b-md">
-        <i class="fa fa-user-plus fa-5x"></i>
+        <%= link_to '<i class="fa fa-user-plus fa-5x"></i>'.html_safe, new_user_registration_path, style: "color:white" %>
         <h3 class="m-xs"><%= t('Registration') %></h3>
         <small>
-          <%= link_to t('Users'), users_path %><%= User.count %> <%= t('registered') %>
+           <%= t('Users') %><%= User.count %> <%= t('registered') %>
         </small>
       </div>
     </div>

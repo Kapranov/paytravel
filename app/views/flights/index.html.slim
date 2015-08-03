@@ -15,6 +15,16 @@
 .wrapper-content.animated.fadeInRight
   .row
     .col-lg-12
+      .input-group
+        = form_tag(flights_path, :method => "get", id: "search-form") do
+          = search_field_tag :search, params[:search], placeholder: "#{t('search_flights')}", class: "input form-control"
+        span class="input-group-btn"
+          button class="btn btn-info" type="button"
+            i class="fa fa-search"
+            = t('Search')
+          = submit_tag "Search", type: "hidden"
+  .row
+    .col-lg-12
       .ibox
         .ibox-content
           table.footable.table.table-stripped.toggle-arrow-tiny[data-page-size="15"]
