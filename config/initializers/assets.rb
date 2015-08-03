@@ -12,3 +12,4 @@ Rails.application.config.assets.precompile += %w( authorization.js authorization
 Rails.application.config.assets.precompile += %w( flights.js flights.css )
 Rails.application.config.assets.precompile += %w( tours.js tours.css )
 Rails.application.config.assets.precompile += %w( dashboard.js dashboard.css )
+Rails.application.config.assets.precompile += %w( visitor.js visitor.css )

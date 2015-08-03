@@ -1,31 +1,135 @@
-p#notice = notice
+= render 'layouts/dashboard_top_links'
+.row.wrapper.border-bottom.white-bg.page-heading2
+  .col-lg-8
+    h2 = t('Show information')
+    ol.breadcrumb
+      li
+        a[href="#{url_for :controller => 'tours', :action => 'index'}"] = t('Listing tours')
+      li.active
+        strong
+          = @tour.fullName
+          '
+          = @tour.name
+  .col-lg-3
+    .title-action
+     = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-edit fa-2x'></i></button>".html_safe, edit_tour_path(@tour)
+     = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-arrow-left fa-2x'></i></button>".html_safe, tours_path
+  .col-lg-1
 
-p
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-5
+      .widget.lazur-bg.p-lg.text-center
+        .m-b-md
+          i.fa.fa-flash.fa-4x
+        h1 = @tour.name
+        hr
+        br
+        ul.list-unstyled.m-t-md
+          li
+            label = t('Contract')
+            | :
+            '
+            = @tour.name
+          br
+          li
+            span.fa.fa-calendar.fa-2x.m-r-xs
+            label = t('Create at')
+            | :
+            '
+            = @tour.created_at.strftime('%d/%m/%Y')
+          br
+          li
+            span.fa.fa-user.fa-2x.m-r-xs
+            label = t('fullName')
+            | :
+            '
+            = @tour.fullName
+        hr
+    .col-lg-5
+      .widget.yellow-bg.p-lg.text-center
+        .m-b-md
+          i.fa.fa-warning.fa-4x
+        ul.list-unstyled.m-t-md
+          li
+            label = t('Percent')
+            | :
+            '
+            - if @tour.percent
+              |
+              '
+              span.badge.badge-danger 1.5%
+            - else
+              |
+              '
+              span.badge.badge-danger 2%
+          li
+            label = t('Sum')
+            | :
+            '
+            .badge.badge-primary = number_to_currency @tour.sum.to_money.format
+          li
+            label = t('Commission')
+            | :
+            '
+            .badge.badge-primary = number_to_currency @tour.commission.to_money.format
+          li
+            label = t('Totalamount')
+            | :
+            '
+            .badge.badge-primary = number_to_currency @tour.totalAmount.to_money.format
+      .widget.red-bg.p-lg.text-center
+        ul.list-unstyled.m-t-md
+          li
+            span.fa.fa-envelope.fa-2x.m-r-xs
+            '
+            = mail_to @tour.email, nil, style: 'color:white;font-weight: bold'
+          br
+          li
+            span.fa.fa-phone.fa-2x.m-r-xs
+            '
+            = @tour.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
+    br
+    .col-lg-2
+      .widget.navy-bg.p-lg.text-center
+        .m-b-md
+          i.fa.fa-envelope.fa-5x
+        = link_to t('Send Mail'), mail_send_tour_path, {:style=>'color:#FFFFFF;'}
+    .col-lg-2
+      .widget.navy-bg.p-lg.text-center
+        .m-b-md
+          i.fa.fa-file-pdf-o.fa-5x
+        = link_to t('Download flight'), tour_path(@tour.id, :format => "pdf", :style=>'color:#FFFFFF;'),
+          {:style=>'color:#FFFFFF;'}
+
+/p#notice = notice
+/
+/p
   strong
     = t('Contract')
     | :
     '
   = @tour.name
-p
+/p
   strong
     = t('Create at')
     | :
     '
   = @tour.created_at.strftime('%d/%m/%Y')
 
-p
+/p
   strong
     = t('fullName')
     | :
     '
   = @tour.fullName
-p
+/p
   strong
     = t('Sum')
     | :
     '
   = number_to_currency @tour.sum.to_money.format
-p
+/p
   strong
     = t('Percent')
     | :
@@ -34,42 +138,41 @@ p
     a 1.5%
   - else
     a 2%
-p
+/p
   strong
     = t('Commission')
     | :
     '
   = number_to_currency @tour.commission.to_money.format
-p
+/p
   strong
     = t('Totalamount')
     |
     '
   = number_to_currency @tour.totalAmount.to_money.format
-p
+/p
   strong
     = t('email')
     | :
     '
   = mail_to @tour.email, nil, style: 'color:green;font-weight: bold'
-p
+/p
   strong
     = t('Telephone')
     | :
     '
   = @tour.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
 
-
-= link_to t('Send Mail'), mail_send_tour_path
-'
-'|
-'
-= link_to t('Download tour'), tour_path(@tour.id, :format => "pdf")
-'
-'|
-'
-= link_to t('Edit'), edit_tour_path(@tour)
-'
-'|
-'
-= link_to t('Back'), tours_path
+/= link_to t('Send Mail'), mail_send_tour_path
+/'
+/'|
+/'
+/= link_to t('Download tour'), tour_path(@tour.id, :format => "pdf")
+/'
+/'|
+/'
+/= link_to t('Edit'), edit_tour_path(@tour)
+/'
+/'|
+/'
+/= link_to t('Back'), tours_path

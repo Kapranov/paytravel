@@ -1,39 +1,86 @@
-<div class="container">
-  <div class="content">
-    <svg viewBox="0 0 900 300">
-      <!-- Symbol with text -->
-      <symbol id="s-text">
-        <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Hide</text>
-      </symbol>
+<div class="row">
+  <div class="col-lg-10">
+    <div class="content">
+      <svg viewBox="0 0 900 300">
+        <!-- Symbol with text -->
+        <symbol id="s-text">
+          <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Hide</text>
+        </symbol>
 
-      <!-- Clippath  with text -->
-      <clipPath id="cp-text">
-        <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Pay Travel</text>
-      </clipPath>
+        <!-- Clippath  with text -->
+        <clipPath id="cp-text">
+          <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Pay Travel</text>
+        </clipPath>
 
-      <!-- Group for shadow -->
-      <g clip-path="url(#cp-text)" class="shadow">
-        <rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
-      </g>
+        <!-- Group for shadow -->
+        <g clip-path="url(#cp-text)" class="shadow">
+          <rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
+        </g>
 
-      <!-- Group with clippath for text-->
-      <g clip-path="url(#cp-text)" class="colortext">
-        <!-- Animated shapes inside text -->
-        <rect width="100%" height="100%" class="anim-shape"></rect>
-        <rect width="80%" height="100%" class="anim-shape"></rect>
-        <rect width="60%" height="100%" class="anim-shape"></rect>
-        <rect width="40%" height="100%" class="anim-shape"></rect>
-        <rect width="20%" height="100%" class="anim-shape"></rect>
-      </g>
+        <!-- Group with clippath for text-->
+        <g clip-path="url(#cp-text)" class="colortext">
+          <!-- Animated shapes inside text -->
+          <rect width="100%" height="100%" class="anim-shape"></rect>
+          <rect width="80%" height="100%" class="anim-shape"></rect>
+          <rect width="60%" height="100%" class="anim-shape"></rect>
+          <rect width="40%" height="100%" class="anim-shape"></rect>
+          <rect width="20%" height="100%" class="anim-shape"></rect>
+        </g>
 
-      <!-- Transparent copy of text to keep patterned text selectable -->
-      <use xlink:href="#s-text" class="text--transparent"></use>
+        <!-- Transparent copy of text to keep patterned text selectable -->
+        <use xlink:href="#s-text" class="text--transparent"></use>
 
-    </svg>
+      </svg>
+    </div>
   </div>
+  <div class="col-lg-2"></div>
 </div>
-<br>
-<h3><%= t('Welcome') %></h3>
-<p><%= link_to t('Users'), users_path %> <%= User.count %> <%= t('registered') %></p>
-<p><%= link_to t('Flights'), flights_path %> <%= Flight.count %> </p>
-<p><%= link_to t('Tours'), tours_path %> <%= Tour.count %> </p>
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-2">
+    <div class="widget lazur-bg p-lg text-center">
+      <div class="m-b-md">
+        <i class="fa fa-user fa-5x"></i>
+        <h3 class="m-xs"><%= t('Login') %></h3>
+        </br>
+        <small><%= t('Authorization') %></small>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="widget lazur-bg p-lg text-center">
+      <div class="m-b-md">
+        <i class="fa fa-plane fa-5x"></i>
+        <h3 class="m-xs"><%= t('Flight') %></h3>
+        <h5 class="font-bold no-margins"><%= t('Flights') %></h5>
+        <small>
+          <%= link_to t('Flights'), flights_path %> <%= Flight.count %>
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="widget lazur-bg p-lg text-center">
+      <div class="m-b-md">
+        <i class="fa fa-globe fa-5x"></i>
+        <h3 class="m-xs"><%= t('Tours') %></h3>
+        <h5 class="font-bold no-margins"><%= t('Tour') %></h5>
+        <small>
+          <%= link_to t('Tours'), tours_path %> <%= Tour.count %>
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="widget lazur-bg p-lg text-center">
+      <div class="m-b-md">
+        <i class="fa fa-user-plus fa-5x"></i>
+        <h3 class="m-xs"><%= t('Registration') %></h3>
+        <small>
+          <%= link_to t('Users'), users_path %><%= User.count %> <%= t('registered') %>
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2"></div>
+</div>

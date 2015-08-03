@@ -4,8 +4,6 @@
       button[aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"]
       a.navbar-brand[href="#{url_for :controller => 'visitors'}"]
         i.fa.fa-credit-card.size-16
-        '
-        | PayTravel
     ul.nav.navbar-top-links.navbar-left[style="padding-top:15px; padding-left:20px"]
       li
         - if user_signed_in?

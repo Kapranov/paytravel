@@ -1,8 +1,24 @@
-h1 = t('Editing tour')
+= render 'layouts/dashboard_top_links'
+.row.wrapper.border-bottom.white-bg.page-heading2
+  .col-lg-8
+    h2 = t('Editing tour')
+    ol.breadcrumb
+      li
+        a[href="#{url_for :controller => 'tours', :action => 'index'}"] = t('Tours')
+      li.active
+        strong = t('edit tour')
+  .col-lg-3
+    .title-action
+      = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-eye fa-2x'></i></button>".html_safe, @tour
+      = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-arrow-left fa-2x'></i></button>".html_safe, tours_path
+  .col-lg-1
 
 == render 'form'
 
-= link_to t('Show'), @tour
-'|
-= link_to t('Back'), tours_path
+/h1 = t('Editing tour')
 
+/== render 'form'
+
+/= link_to t('Show'), @tour
+/'|
+/= link_to t('Back'), tours_path

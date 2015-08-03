@@ -40,7 +40,7 @@
                     - if flight.percent
                       span.label.label-danger 1.5%
                     - else
-                      span.label.label-danger 2%
+                      span.label.label-warning 2%
                   td = number_to_currency flight.commission.to_money.format
                   td = number_to_currency flight.totalAmount.to_money.format
                   td = mail_to flight.email, nil, style: 'color:green;font-weight: bold'

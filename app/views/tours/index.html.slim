@@ -1,11 +1,62 @@
-.small-10.large-11.columns
+= render 'layouts/dashboard_top_links'
+.row.wrapper.border-bottom.white-bg.page-heading2
+  .col-lg-8
+    h2 = t('Listing tours')
+    ol.breadcrumb
+      li
+        a[href="#{url_for :controller => 'tours', :action => 'index'}"] = t('Tours')
+      li.active
+        strong = t('Listing tours')
+  .col-lg-3
+    .title-action
+      = link_to "<button class='btn btn-sm btn-info dim' type='button'>#{t('New Tour')}</button>".html_safe, new_tour_path
+  .col-lg-1
+.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox
+        .ibox-content
+          table.footable.table.table-stripped.toggle-arrow-tiny[data-page-size="15"]
+            thead
+              tr
+                th = t('Contract')
+                th = t('fullName')
+                th = t('Sum')
+                th = t('Percent')
+                th = t('Commission')
+                th = t('Totalamount')
+                th = t('email')
+                th = t('Telephone')
+                th = t('Create at')
+                th = t('PDF')
+            tbody
+              - @tours.each do |tour|
+                tr
+                  td = link_to tour.name, tour
+                  td = tour.fullName
+                  td = number_to_currency tour.sum.to_money.format
+                  td
+                    - if tour.percent
+                      span.label.label-danger 1.5%
+                    - else
+                      span.label.label-warning 2%
+                  td = number_to_currency tour.commission.to_money.format
+                  td = number_to_currency tour.totalAmount.to_money.format
+                  td = mail_to tour.email, nil, style: 'color:green;font-weight: bold'
+                  td = tour.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
+                  td = tour.created_at.strftime('%d/%m/%Y')
+                  td.text-right
+                    .btn-group
+                      = link_to '<i class="fa fa-file-pdf-o size-13"></i>'.html_safe, tour_path(tour.id, :format => "pdf")
+
+/.small-10.large-11.columns
   = form_tag(tours_path, :method => "get", id: "search-form") do
     = search_field_tag :search, params[:search], placeholder: "#{t('search_tours')}"
     = submit_tag "Search", type: "hidden"
 
-h1 = t('Listing tours')
+/h1 = t('Listing tours')
 
-table
+/table
   thead
     tr
       th = t('Contract')
@@ -20,7 +71,6 @@ table
       th
       th
       th
-
   tbody
     - @tours.each do |tour|
       tr
@@ -41,7 +91,7 @@ table
         td = link_to t('Show'), tour
         td = link_to t('Edit'), edit_tour_path(tour)
 
-br
+/br
 
-= paginate @tours
-= link_to t('New Tour'), new_tour_path
+/= paginate @tours
+/= link_to t('New Tour'), new_tour_path
