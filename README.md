@@ -30,4 +30,4 @@ Credits
 License
 -------
 
-### Oleg G.kapranov 3 Aug 2015.
+### Oleg G.kapranov 18 Aug 2015.
