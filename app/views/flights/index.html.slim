@@ -40,6 +40,7 @@
                 th = t('Telephone')
                 th = t('Create at')
                 th = t('PDF')
+                /th
             tbody
               - @flights.each do |flight|
                 tr
@@ -59,3 +60,7 @@
                   td.text-right
                     .btn-group
                       = link_to '<i class="fa fa-file-pdf-o size-13"></i>'.html_safe, flight_path(flight.id, :format => "pdf")
+                  /td.text-right
+                    .btn-group
+                      = link_to '<i class="fa fa-trash size-13"></i>'.html_safe, flight, data: {:confirm => t('Are you sure')}, :method => :delete
+

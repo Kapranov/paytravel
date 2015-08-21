@@ -1,4 +1,5 @@
 class FlightsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
   # after_action :mail_sending, only: [:create]
   layout 'dashboard'

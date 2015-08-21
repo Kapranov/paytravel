@@ -61,7 +61,8 @@
         <%= link_to '<i class="fa fa-user fa-5x"></i>'.html_safe, new_user_session_path, style: "color:white" %>
         <h3 class="m-xs"><%= t('Login') %></h3>
         </br>
-        <small><%= t('Authorization') %></small>
+        <h6 class="no-margins"><%= t('Info') %></h6>
+        <small> <%= mail_to 'irina@travelonline.com.ua', 'Travelonline Inc.', class: "info" %> </small>
       </div>
     </div>
   </div>
@@ -70,10 +71,10 @@
       <div class="m-b-md">
         <%= link_to '<i class="fa fa-plane fa-5x"></i>'.html_safe, flights_path, style: "color:white" %>
         <h3 class="m-xs"><%= t('Flight') %></h3>
-        <h5 class="font-bold no-margins"><%= t('Flights') %></h5>
-        <small>
-          <%= t('Flights') %> <%= Flight.count %>
-        </small>
+        <h6 class="font-bold no-margins"><%= t('Flights') %></h6>
+        <h1>
+          <%= Flight.count %>
+        </h1>
       </div>
     </div>
   </div>
@@ -82,21 +83,26 @@
       <div class="m-b-md">
         <%= link_to '<i class="fa fa-globe fa-5x"></i>'.html_safe, tours_path, style: "color:white" %>
         <h3 class="m-xs"><%= t('Tours') %></h3>
-        <h5 class="font-bold no-margins"><%= t('Tour') %></h5>
-        <small>
-          <%= t('Tours') %> <%= Tour.count %>
-        </small>
+        <h6 class="font-bold no-margins"><%= t('Tour') %></h6>
+        <h1>
+          <%= Tour.count %>
+        </h1>
       </div>
     </div>
   </div>
   <div class="col-lg-2">
     <div class="widget lazur-bg p-lg text-center">
       <div class="m-b-md">
-        <%= link_to '<i class="fa fa-user-plus fa-5x"></i>'.html_safe, new_user_registration_path, style: "color:white" %>
+        <% if user_signed_in? %>
+          <%= link_to '<i class="fa fa-user-plus fa-5x"></i>'.html_safe, new_user_registration_path, style: "color:white" %>
+        <% else %>
+          <i class="fa fa-user-plus fa-5x"></i>
+        <% end %>
         <h3 class="m-xs"><%= t('Registration') %></h3>
-        <small>
-           <%= t('Users') %><%= User.count %> <%= t('registered') %>
-        </small>
+        <h6 class="m-xs font-bold no-margins"><%= t('registered') %></h6>
+        <h1>
+           <%= User.count %>
+        </h1>
       </div>
     </div>
   </div>

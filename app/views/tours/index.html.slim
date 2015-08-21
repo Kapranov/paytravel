@@ -39,6 +39,7 @@
                 th = t('Telephone')
                 th = t('Create at')
                 th = t('PDF')
+                /th
             tbody
               - @tours.each do |tour|
                 tr
@@ -58,6 +59,9 @@
                   td.text-right
                     .btn-group
                       = link_to '<i class="fa fa-file-pdf-o size-13"></i>'.html_safe, tour_path(tour.id, :format => "pdf")
+                  /td.text-right
+                    .btn-group
+                      = link_to '<i class="fa fa-trash size-13"></i>'.html_safe, tour, data: {:confirm => t('Are you sure')}, :method => :delete
 
 /.small-10.large-11.columns
   = form_tag(tours_path, :method => "get", id: "search-form") do

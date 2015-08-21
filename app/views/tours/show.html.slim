@@ -46,6 +46,11 @@
             '
             = @tour.fullName
         hr
+      .widget.lazur-bg.p-md.text-center
+        .m-b-md
+            label = t('Delete Customer')
+            = button_to t('Delete'), @tour, method: :delete, data: { confirm: t('Are you sure') + @tour.name + " ?" },
+              class: "btn btn-danger btn-sm"
     .col-lg-5
       .widget.yellow-bg.p-lg.text-center
         .m-b-md
