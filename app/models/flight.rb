@@ -10,7 +10,7 @@ class Flight < ActiveRecord::Base
   monetize :sum, :commission, :totalAmount
   phony_normalize :telephone, :default_country_code => 'UK'
 
-  validates_presence_of :firstName, :lastName, :email, :telephone
+  validates_presence_of :firstName, :lastName, :email, :telephone, :payment
 
   validates :firstName, format: { with: /\A[А-Яа-яІіЇїЄєҐґ]+\z/,
     minimum: 4, maximum: 15, message: "only allows letters" }

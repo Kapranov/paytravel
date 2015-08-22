@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 7) do
+ActiveRecord::Schema.define(version: 11) do
 
   create_table "flights", force: :cascade do |t|
     t.string   "firstName",                            null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 7) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "slug"
+    t.text     "note"
+    t.boolean  "payment"
   end
 
   add_index "flights", ["slug"], name: "index_flights_on_slug"
@@ -54,6 +56,8 @@ ActiveRecord::Schema.define(version: 7) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "slug"
+    t.text     "note"
+    t.boolean  "payment"
   end
 
   add_index "tours", ["slug"], name: "index_tours_on_slug"

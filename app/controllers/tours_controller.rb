@@ -100,7 +100,9 @@ class ToursController < ApplicationController
         :commission,
         :totalAmount,
         :email,
-        :telephone
+        :telephone,
+        :note,
+        :payment
       )
     end
 

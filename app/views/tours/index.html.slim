@@ -29,6 +29,8 @@
           table.footable.table.table-stripped.toggle-arrow-tiny[data-page-size="15"]
             thead
               tr
+                th
+                  i.fa.fa-warning[style="color:brown"]
                 th = t('Contract')
                 th = t('fullName')
                 th = t('Sum')
@@ -43,6 +45,11 @@
             tbody
               - @tours.each do |tour|
                 tr
+                  td
+                    - if tour.payment
+                      i.fa.fa-angellist[style="color:blue"]
+                    -else
+                      i.fa.fa-bell[style="color:red"]
                   td = link_to tour.name, tour
                   td = tour.fullName
                   td = number_to_currency tour.sum.to_money.format

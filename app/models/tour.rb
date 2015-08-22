@@ -9,7 +9,7 @@ class Tour < ActiveRecord::Base
   monetize :sum, :commission, :totalAmount
   phony_normalize :telephone, :default_country_code => 'UK'
 
-  validates_presence_of :firstName, :lastName, :email, :telephone
+  validates_presence_of :firstName, :lastName, :email, :telephone, :payment
 
   validates :firstName, format: { with: /\A[А-Яа-яІіЇїЄєҐґ]+\z/,
     minimum: 4, maximum: 15, message: "only allows letters" }
@@ -27,6 +27,8 @@ class Tour < ActiveRecord::Base
 
   validates :telephone, length: { is: 9 }, numericality: { only_integer: true }
   validates_format_of :telephone, with: /\A[+-]?\d+\Z/
+
+
 
   def normalize_friendly_id(input)
     input.to_s.to_slug.normalize(transliterations: :ukrainian).to_s

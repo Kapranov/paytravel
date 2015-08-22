@@ -21,7 +21,7 @@
     .col-lg-5
       .widget.lazur-bg.p-lg.text-center
         .m-b-md
-          i.fa.fa-flash.fa-4x
+          i.fa.fa-pied-piper-alt.fa-4x
         h1 = @flight.name
         hr
         br
@@ -46,7 +46,7 @@
             '
             = @flight.fullName
           hr
-      .widget.lazur-bg.p-md.text-center
+      .widget.black-bg.p-md.text-center
         .m-b-md
           label = t('Delete Customer')
           = button_to t('Delete'), @flight, method: :delete, data: { confirm: t('Are you sure') + @flight.name + " ?" },
@@ -54,7 +54,7 @@
     .col-lg-5
       .widget.yellow-bg.p-lg.text-center
         .m-b-md
-          i.fa.fa-warning.fa-4x
+          i.fa.fa-money.fa-4x
         ul.list-unstyled.m-t-md
           li
             label = t('Percent')
@@ -83,7 +83,7 @@
             | :
             '
             .badge.badge-primary = number_to_currency @flight.totalAmount.to_money.format
-      .widget.red-bg.p-lg.text-center
+      .widget.lazur-bg.p-lg.text-center
         ul.list-unstyled.m-t-md
           li
             span.fa.fa-envelope.fa-2x.m-r-xs
@@ -94,7 +94,31 @@
             span.fa.fa-phone.fa-2x.m-r-xs
             '
             = @flight.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
+      .widget.blue-bg.p-md.text-left
+        .m-b-md
+          table
+            tr
+              td
+                i.fa.fa-comment.fa-3x
+                '
+                = t('Note')
+              td
+                div[style="width:30px"]
+              td
+                = @flight.note
     .col-lg-2
+      - if @flight.payment
+        .widget.blue-bg.p-lg.text-center
+          .m-b-md
+              i.fa.fa-angellist.fa-3x
+              '
+              p = t('Pay')
+      - else
+        .widget.red-bg.p-lg.text-center
+          .m-b-md
+              i.fa.fa-bell-o.fa-3x
+              '
+              p = t('Do not pay')
       .widget.navy-bg.p-lg.text-center
         .m-b-md
           i.fa.fa-envelope.fa-5x
