@@ -1,0 +1,12 @@
+= render 'layouts/dashboard_top_links'
+.row.wrapper.border-bottom.white-bg.page-heading2
+  .col-lg-8
+    h3 User
+    p
+      | Name:
+      '
+      = @user.name if @user.name
+    p
+      | Email:
+      '
+      = @user.email if @user.email

@@ -1,0 +1,10 @@
+= render 'layouts/dashboard_top_links'
+.row.wrapper.border-bottom.white-bg.page-heading2
+  .col-lg-8
+    h3 Users
+    .column
+      table.table
+        tbody
+        - @users.each do |user|
+          tr
+            = render user

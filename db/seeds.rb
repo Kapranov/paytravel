@@ -3,6 +3,7 @@
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
 # See http://railsapps.github.io/rails-environment-variables.html
 #
+# setcap 'cap_net_bind_service=+ep' /path/to/program
 #
 # user = CreateAdminService.new.call
 # puts 'CREATED ADMIN USER: ' << user.email

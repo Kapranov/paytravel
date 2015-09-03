@@ -6,8 +6,8 @@ Ruby on Rails
 
 This application requires:
 
-- Ruby 2.2.2
-- Rails 4.2.3
+- Ruby 2.2.3
+- Rails 4.2.4
 
 Getting Started
 ---------------
@@ -30,4 +30,4 @@ Credits
 License
 -------
 
-### Oleg G.kapranov 18 Aug 2015.
+### Oleg G.kapranov 3 Sep 2015.

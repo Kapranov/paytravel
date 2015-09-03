@@ -18,6 +18,7 @@
 # minimal Rails specific artifacts
 db/*.sqlite3
 /db/*.sqlite3-journal
+/db/*.sqlite3-save
 /log/*
 /tmp/*
 
@@ -80,3 +81,5 @@ pickle-email-*.html
 
 # Ignore application configuration
 /config/application.yml
+
+
