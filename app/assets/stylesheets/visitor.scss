@@ -27,6 +27,56 @@ body {
 	font-family: 'Raleway', Arial, sans-serif;
 }
 
+.master-wrapper-home {
+  top: 0px;
+  z-index: 9999 !important;
+  margin: 0px 0px 300px;
+  background: none repeat scroll 0% 0% #FFF;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.page-template-page-homepage {
+  position: relative;
+}
+
+.page-template-page-homepage #home-index {
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  background: asset_url("ny.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#home-index {
+  height: 300px;
+  top: 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  padding: 0px;
+  margin: 0px;
+}
+
+.pattern {
+  background-image: asset_url("pattern.png");
+}
+
+.pattern, .dark-overlay {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
 .content {
 	padding: 0 1em;
 	text-align: left;
@@ -91,4 +141,22 @@ svg {
   color: white;
   font-size: 10pt;
   text-decoration: none;
+}
+
+.footer {
+  z-index: 9999 !important;
+  /* Fallback for web browsers that don't support RGBa */
+  background-color: rgb(0, 0, 0);
+  /* RGBa with 0.6 opacity */
+  background-color: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid #e7eaec;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+  position: absolute;
+  right: 0;
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }

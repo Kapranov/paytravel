@@ -1,110 +1,119 @@
-<div class="row">
-  <div class="col-lg-10">
-    <div class="content">
-      <svg viewBox="0 0 900 300">
-        <!-- Symbol with text -->
-        <symbol id="s-text">
-          <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Hide</text>
-        </symbol>
+<div class="page-template-page-homepage">
+  <div class="master-wrapper-home">
+    <div class="section" id="home-index" style="display: block;">
+      <div class="pattern dark-overlay"></div>
 
-        <!-- Clippath  with text -->
-        <clipPath id="cp-text">
-          <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Pay Travel</text>
-        </clipPath>
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="content">
+            <svg viewBox="0 0 900 300">
+              <!-- Symbol with text -->
+              <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Hide</text>
+              </symbol>
 
-        <!-- Group for shadow -->
-        <g clip-path="url(#cp-text)" class="shadow">
-          <rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
-        </g>
+              <!-- Clippath  with text -->
+              <clipPath id="cp-text">
+                <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">Pay Travel</text>
+              </clipPath>
 
-        <!-- Group with clippath for text-->
-        <g clip-path="url(#cp-text)" class="colortext">
-          <!-- Animated shapes inside text -->
-          <rect width="100%" height="100%" class="anim-shape"></rect>
-          <rect width="80%" height="100%" class="anim-shape"></rect>
-          <rect width="60%" height="100%" class="anim-shape"></rect>
-          <rect width="40%" height="100%" class="anim-shape"></rect>
-          <rect width="20%" height="100%" class="anim-shape"></rect>
-        </g>
+              <!-- Group for shadow -->
+              <g clip-path="url(#cp-text)" class="shadow">
+                <rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
+              </g>
 
-        <!-- Transparent copy of text to keep patterned text selectable -->
-        <use xlink:href="#s-text" class="text--transparent"></use>
+              <!-- Group with clippath for text-->
+              <g clip-path="url(#cp-text)" class="colortext">
+                <!-- Animated shapes inside text -->
+                <rect width="100%" height="100%" class="anim-shape"></rect>
+                <rect width="80%" height="100%" class="anim-shape"></rect>
+                <rect width="60%" height="100%" class="anim-shape"></rect>
+                <rect width="40%" height="100%" class="anim-shape"></rect>
+                <rect width="20%" height="100%" class="anim-shape"></rect>
+              </g>
 
-      </svg>
-    </div>
-  </div>
-  <div class="col-lg-2"></div>
-</div>
-<div class="row">
-  <div class="col-lg-2"></div>
-  <div class="col-lg-8">
-    <div class="input-group">
-      <input class="input form-control" type="text" placeholder="<%= t('Search Client') %>"</input>
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">
-          <i class="fa fa-search"></i>
-          <%= t('Search') %>
-        </button>
-      </span>
-    </div>
-  </div>
-  <div class="col-lg-2"></div>
-</div>
-<br>
-<br>
-<br>
-<div class="row">
-  <div class="col-lg-2"></div>
-  <div class="col-lg-2">
-    <div class="widget lazur-bg p-lg text-center">
-      <div class="m-b-md">
-        <%= link_to '<i class="fa fa-user fa-5x"></i>'.html_safe, new_user_session_path, style: "color:white" %>
-        <h3 class="m-xs"><%= t('Login') %></h3>
-        </br>
-        <h6 class="no-margins"><%= t('Info') %></h6>
-        <small> <%= mail_to 'irina@travelonline.com.ua', 'Travelonline Inc.', class: "info" %> </small>
+              <!-- Transparent copy of text to keep patterned text selectable -->
+              <use xlink:href="#s-text" class="text--transparent"></use>
+
+            </svg>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
       </div>
-    </div>
-  </div>
-  <div class="col-lg-2">
-    <div class="widget lazur-bg p-lg text-center">
-      <div class="m-b-md">
-        <%= link_to '<i class="fa fa-plane fa-5x"></i>'.html_safe, flights_path, style: "color:white" %>
-        <h3 class="m-xs"><%= t('Flight') %></h3>
-        <h6 class="font-bold no-margins"><%= t('Flights') %></h6>
-        <h1>
-          <%= Flight.count %>
-        </h1>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="input-group">
+            <input class="input form-control" type="text" placeholder="<%= t('Search Client') %>"</input>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <i class="fa fa-search"></i>
+                <%= t('Search') %>
+              </button>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
       </div>
-    </div>
-  </div>
-  <div class="col-lg-2">
-    <div class="widget lazur-bg p-lg text-center">
-      <div class="m-b-md">
-        <%= link_to '<i class="fa fa-globe fa-5x"></i>'.html_safe, tours_path, style: "color:white" %>
-        <h3 class="m-xs"><%= t('Tours') %></h3>
-        <h6 class="font-bold no-margins"><%= t('Tour') %></h6>
-        <h1>
-          <%= Tour.count %>
-        </h1>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-2">
+          <div class="widget lazur-bg p-lg text-center">
+            <div class="m-b-md">
+              <%= link_to '<i class="fa fa-user fa-5x"></i>'.html_safe, new_user_session_path, style: "color:white" %>
+              <h3 class="m-xs"><%= t('Login') %></h3>
+              </br>
+              <h6 class="no-margins"><%= t('Info') %></h6>
+              <small> <%= mail_to 'irina@travelonline.com.ua', 'Travelonline Inc.', class: "info" %> </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="widget lazur-bg p-lg text-center">
+            <div class="m-b-md">
+              <%= link_to '<i class="fa fa-plane fa-5x"></i>'.html_safe, flights_path, style: "color:white" %>
+              <h3 class="m-xs"><%= t('Flight') %></h3>
+              <h6 class="font-bold no-margins"><%= t('Flights') %></h6>
+              <h1>
+                <%= Flight.count %>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="widget lazur-bg p-lg text-center">
+            <div class="m-b-md">
+              <%= link_to '<i class="fa fa-globe fa-5x"></i>'.html_safe, tours_path, style: "color:white" %>
+              <h3 class="m-xs"><%= t('Tours') %></h3>
+              <h6 class="font-bold no-margins"><%= t('Tour') %></h6>
+              <h1>
+                <%= Tour.count %>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="widget lazur-bg p-lg text-center">
+            <div class="m-b-md">
+              <% if user_signed_in? %>
+                <%= link_to '<i class="fa fa-user-plus fa-5x"></i>'.html_safe, new_user_registration_path, style: "color:white" %>
+              <% else %>
+                <i class="fa fa-user-plus fa-5x"></i>
+              <% end %>
+              <h3 class="m-xs"><%= t('Registration') %></h3>
+              <h6 class="m-xs font-bold no-margins"><%= t('registered') %></h6>
+              <h1>
+                 <%= User.count %>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
       </div>
+
     </div>
   </div>
-  <div class="col-lg-2">
-    <div class="widget lazur-bg p-lg text-center">
-      <div class="m-b-md">
-        <% if user_signed_in? %>
-          <%= link_to '<i class="fa fa-user-plus fa-5x"></i>'.html_safe, new_user_registration_path, style: "color:white" %>
-        <% else %>
-          <i class="fa fa-user-plus fa-5x"></i>
-        <% end %>
-        <h3 class="m-xs"><%= t('Registration') %></h3>
-        <h6 class="m-xs font-bold no-margins"><%= t('registered') %></h6>
-        <h1>
-           <%= User.count %>
-        </h1>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-2"></div>
 </div>
