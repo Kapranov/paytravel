@@ -105,6 +105,21 @@ uk:
   Pay: "СПЛАТИЛИ !"
   note_text: "Замітка може бути порожня чи заповнена"
   note_placeholder: "Будь-який текст до 255 символів"
+  Listing Users: "Список користувачів"
+  Users: "Користувачі"
+  Name: "Прізвище"
+  Email: "Поштова скринька"
+  Created at: "Створено"
+  Updated at: "Оновлене"
+  Show User: "Інформація про користувача"
+  Edit profile: "Редагувати ваш профіль"
+  Password confirmation: "Підтвердження пароля"
+  Leave it blank: "Залиште це поле порожнім"
+  Current password: "Поточний пароль"
+  Enter current password: "Введіть поточний пароль"
+  Update: "Оновити"
+  Cancel my account: "Скасувати свій аккаунт"
+  Are you sure what you want delete you account: "Ви впевнені що хочете видалити свій обліковий запис з системи?"
   date:
     abbr_day_names:
     - нд.
@@ -115,7 +130,7 @@ uk:
     - пт.
     - сб.
     abbr_month_names:
-    - 
+    -
     - січ.
     - лют.
     - бер.

@@ -15,7 +15,7 @@
         = f.password_field :password, class: 'form-control', placeholder: t('Password'), required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
       .form-group
         = f.password_field :password_confirmation, required: true, class: 'form-control', placeholder: t('Password confirmation')
-      = f.submit t('Sign up'), :class => 'btn btn-primary block full-width m-b  right'
+      = f.submit t('Sign up'), :class => 'btn btn-primary block full-width m-b right'
     p.m-t
       small = mail_to 'lugatex@yahoo.com', 'LugaTeX'
       '

@@ -1,10 +1,32 @@
 = render 'layouts/dashboard_top_links'
-.row.wrapper.border-bottom.white-bg.page-heading2
+.row.wrapper.border-bottom.white-bg.page-heading
   .col-lg-8
-    h3 Users
-    .column
-      table.table
-        tbody
-        - @users.each do |user|
-          tr
-            = render user
+    h2 = t('Listing Users')
+    ol.breadcrumb
+      li
+        a[href="#{url_for :controller => 'visitors', :action => 'index'}"] = t('Home')
+      li.active
+        strong = t('Users')
+  .col-lg-3
+    .title-action
+     = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-arrow-left fa-2x'></i></button>".html_safe, root_path
+  .col-lg-1
+
+.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-1
+    .col-lg-10
+      .ibox
+        .ibox-content
+          table.footable.table.table-stripped.toggle-arrow-tiny[data-page-size="25"]
+            thead
+              tr
+                th = t('Name')
+                th = t('Email')
+                th = t('Created at')
+                th = t('Updated at')
+            tbody
+              - @users.each do |user|
+                tr
+                  = render user
+    .col-lg-1

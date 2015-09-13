@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
   def to_s
     '#{name}'
   end
+
+  Time::DATE_FORMATS[:due_date] = "%d-%m-%Y / %H:%m:%S"
+
 end

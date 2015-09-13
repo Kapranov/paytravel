@@ -1,12 +1,50 @@
 = render 'layouts/dashboard_top_links'
-.row.wrapper.border-bottom.white-bg.page-heading2
+.row.wrapper.border-bottom.white-bg.page-heading
   .col-lg-8
-    h3 User
-    p
-      | Name:
-      '
-      = @user.name if @user.name
-    p
-      | Email:
-      '
-      = @user.email if @user.email
+    h2 = t('Show User')
+    ol.breadcrumb
+      li
+        a[href="#{url_for :controller => 'visitors', :action => 'index'}"] = t('Home')
+      li
+        a[href="#{url_for :controller => 'users', :action => 'index'}"] = t('Users')
+      li.active
+        strong = t('Show User')
+  .col-lg-3
+    .title-action
+     = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-arrow-left fa-2x'></i></button>".html_safe, users_path
+  .col-lg-1
+
+br
+br
+br
+
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-3
+      .widget.lazur-bg.p-lg.text-center
+        p
+          i.fa.fa-user.fa-3x
+        p = @user.name if @user.name
+    .col-lg-3
+      .widget.lazur-bg.p-lg.text-center
+        p
+          i.fa.fa-envelope.fa-3x
+        p = @user.email if @user.email
+    .col-lg-3
+      .widget.lazur-bg.p-lg.text-center
+        p
+          i.fa.fa-calendar.fa-3x
+        p
+          = t('Created at')
+          |:
+          '
+          = @user.created_at.to_s(:due_date) if @user.created_at
+    .col-lg-3
+      .widget.lazur-bg.p-lg.text-center
+        p
+          i.fa.fa-calendar.fa-3x
+        p
+          = t('Updated at')
+          |:
+          '
+          = @user.updated_at.to_s(:due_date) if @user.updated_at
