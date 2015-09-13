@@ -9,6 +9,6 @@ class TourMailer < ApplicationMailer
     mail to: tour.email,
       cc: "petukhova090468@gmail.com",
       bcc: ["irina@inet.ua", "Order Tour <irina@travelonline.com.ua>"],
-      subject: "ActionMailer Tour #{Time.zone.now.strftime("%H:%M:%S %d/%m/%Y")}"
+      subject: "PayTravel Tour #{@tour.name} at #{Time.zone.now.strftime("%H:%M:%S %d/%m/%Y")}"
   end
 end

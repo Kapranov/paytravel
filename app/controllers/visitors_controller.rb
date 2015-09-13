@@ -3,9 +3,17 @@ class VisitorsController < ApplicationController
   layout 'visitor'
 
   def index
-    @flights = Flight.all
-    @tours = Tour.all
+    # @flights = Flight.all
+    # @tours = Tour.all
+    q = params[:q]
+    @flights = Flight.ransack(name_cont: q).result
+    @tours = Tour.ransack(name_cont: q).result
     # @q = Visitor.ransack(params[:q])
     # @visitors = @q.result.includes(:flights, :tours)
+  end
+
+  def search
+    index
+    render :index
   end
 end

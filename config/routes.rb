@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'visitors/index'
+  # get 'visitors/index'
+  # http://pay.travelonline.com.ua/flights/petukhova/mail_send
 
   devise_for :users
 
   resources :users
+
+  resources :visitors, only: :index do
+    match 'search' => 'visitors#search', on: :collection, via: [:get, :post], as: :search
+  end
 
   resources :tours do
     member do

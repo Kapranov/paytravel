@@ -83,7 +83,6 @@ class ToursController < ApplicationController
   def mail_send
     @tour = Tour.friendly.find(params[:id])
     @mail = TourMailer.report_email(@tour).deliver_now
-    render :text => 'Tour order has been sent!'
   end
 
   private

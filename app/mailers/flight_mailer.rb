@@ -10,6 +10,6 @@ class FlightMailer < ApplicationMailer
     mail to: flight.email,
       cc: "petukhova090468@gmail.com",
       bcc: ["irina@inet.ua", "Order Flight <irina@travelonline.com.ua>"],
-      subject: "ActionMailer Flights #{Time.zone.now.strftime("%H:%M:%S %d/%m/%Y")}"
+      subject: "PayTravel Flights #{@flight.name} at #{Time.zone.now.strftime("%H:%M:%S %d/%m/%Y")}"
   end
 end

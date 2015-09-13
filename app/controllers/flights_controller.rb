@@ -82,7 +82,6 @@ class FlightsController < ApplicationController
   def mail_send
     @flight = Flight.friendly.find(params[:id])
     @mail = FlightMailer.report_email(@flight).deliver_now
-    render :text => 'Flights order has been sent!'
   end
 
   private

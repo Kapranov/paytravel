@@ -1,0 +1,9 @@
+div.input-group.search_shadow
+  = form_tag search_visitors_path, method: :get, id: "search-form" do
+    = search_field_tag :q, params[:q], placeholder: "#{t('search_index')}", class: "input form-control"
+  span.input-group-btn
+    button.btn.btn-info
+      i.fa.fa-search
+      '
+      = t('Search')
+    = submit_tag "Search", type: "hidden"

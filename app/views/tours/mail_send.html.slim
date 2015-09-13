@@ -1,0 +1,33 @@
+= render 'layouts/dashboard_top_links'
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-8
+    h2 = t('Sending letters')
+    ol.breadcrumb
+      li
+        a[href="#{url_for :controller => 'tours', :action => 'index'}"] = t('Listing tours')
+      li.active
+        strong
+          '
+          = t("Writing for the client")
+          '
+          = @tour.fullName
+          '
+          = @tour.name
+  .col-lg-3
+    .title-action
+     = link_to "<button class='btn btn-sm btn-info dim' type='button'><i class='fa fa-arrow-left fa-2x'></i></button>".html_safe, tours_path
+  .col-lg-1
+
+br
+br
+br
+
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-3
+    .col-lg-6
+      .widget.red-bg.p-lg.text-center
+        .m-b-md
+          i.fa.fa-pied-piper-alt.fa-4x
+        h1 = t("A letter has been sent")
+    .col-lg-3
