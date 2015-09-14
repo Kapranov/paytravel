@@ -21,6 +21,7 @@
         span class="input-group-btn"
           button class="btn btn-info" type="button"
             i class="fa fa-search"
+            '
             = t('Search')
           = submit_tag "Search", type: "hidden"
   .row
@@ -40,7 +41,7 @@
                 th = t('Totalamount')
                 th = t('email')
                 th = t('Telephone')
-                th = t('Create at')
+                /th = t('Create at')
                 th = t('PDF')
                 /th
             tbody
@@ -63,7 +64,7 @@
                   td = number_to_currency flight.totalAmount.to_money.format
                   td = mail_to flight.email, nil, style: 'color:green;font-weight: bold'
                   td = flight.name_telephone.phony_formatted!(normalize: :UA, format: :international, spaces: '-')
-                  td = flight.created_at.strftime('%d/%m/%Y')
+                  /td = flight.created_at.strftime('%d/%m/%Y')
                   td.text-right
                     .btn-group
                       = link_to '<i class="fa fa-file-pdf-o size-13"></i>'.html_safe, flight_path(flight.id, :format => "pdf")
