@@ -1,0 +1,45 @@
+br
+br
+br
+br
+.wrapper.wrapper-content.animated.fadeInRight
+  .row
+    .col-lg-3
+    .col-lg-6
+      .widget.lazur-bg.p-lg.text-left
+        .m-b-md
+          h3.text-center = t('About the Website')
+          p.m-t.text-right
+            = link_to "<button class='btn btn-sm btn-gray dim' type='button'><i class='fa fa-arrow-left fa-2x'></i></button>".html_safe, root_path
+          br
+          p
+            | Irina Pietukhova
+            br
+            | Head of booking centre
+            br
+            | Traveline  Agency
+            br
+            | Global Travel & Leisure
+            br
+            | Kharkivske shose,49, off 2 Kiev,
+            br
+            | 02096, Ukraine,
+            br
+            | +38 044 232 97 62
+            br
+            | +38 050 331 32 24
+            br
+            | web:
+            '
+            = link_to 'travelonline.com.ua', 'http://travelonline.com.ua', style: "color:white"
+          br
+          = image_tag('travelonline.jpg', size: "550x110")
+        p.m-t.text-right
+          small = mail_to 'lugatex@yahoo.com', 'LugaTeX', style: "color:white"
+          '
+          | #{t('we app framework')}
+          '
+          | &copy; 2015
+    .col-lg-3
+
+= stylesheet_link_tag "dashboard", :media => 'all'

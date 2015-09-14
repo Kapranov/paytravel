@@ -1,12 +1,12 @@
 nav.navbar.navbar-inverse.navbar-fixed-top
   .container
     .navbar-header
-      button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to '<i class="fa fa-credit-card"></i>'.html_safe, root_path, class: 'navbar-brand'
+      button[aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"]
+      a.navbar-brand
+        i.fa.fa-credit-card.size-16
+        '
+        | PayTravel
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         == render 'layouts/navigation_links'
+= render 'layouts/footer'

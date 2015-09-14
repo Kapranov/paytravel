@@ -3,12 +3,11 @@ class TourMailer < ApplicationMailer
 
   def report_email(tour)
     @tour = tour
-    @greeting = "This is test message for check Mail delivery in Tour model"
-    # report_filename = Time.zone.now.strftime('Report %d-%m-%Y')
+    @greeting = "ORDER EASY PAY #{@tour.name} at #{Time.zone.now.strftime("%H:%M:%S %d/%m/%Y")}"
     attachments["#{@tour.name}.pdf"] = TourPdf.new(@tour, view_context).render
     mail to: tour.email,
       cc: "petukhova090468@gmail.com",
       bcc: ["irina@inet.ua", "Order Tour <irina@travelonline.com.ua>"],
-      subject: "PayTravel Tour #{@tour.name} at #{Time.zone.now.strftime("%H:%M:%S %d/%m/%Y")}"
+      subject: "Order Easy Pay"
   end
 end

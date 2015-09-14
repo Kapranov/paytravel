@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   # get 'visitors/index'
-  # http://pay.travelonline.com.ua/flights/petukhova/mail_send
 
   devise_for :users
 

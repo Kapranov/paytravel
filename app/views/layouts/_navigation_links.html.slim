@@ -1,9 +1,9 @@
 - if user_signed_in?
-  li = link_to '<i class="fa fa-plane size-13"></i>'.html_safe, flights_path
-  li = link_to '<i class="fa fa-globe size-13"></i>'.html_safe, tours_path
-  li = link_to '<i class="fa fa-user-secret size-13"></i>'.html_safe, edit_user_registration_path
-  li = link_to '<i class="fa fa-users size-13"></i>'.html_safe, users_path
+  li = link_to '<i class="fa fa-plane size-14"></i>'.html_safe, flights_path
+  li = link_to '<i class="fa fa-globe size-14"></i>'.html_safe, tours_path
+  li = link_to '<i class="fa fa-user-secret size-14"></i>'.html_safe, edit_user_registration_path
+  li = link_to '<i class="fa fa-users size-14"></i>'.html_safe, users_path
   li = link_to t('Sign out'), destroy_user_session_path, :class => "fa fa-sign-out", :method=>'delete'
 - else
-  li = link_to '<i class="fa fa-sign-in size-13"></i>'.html_safe, new_user_session_path
-  li = link_to '<i class="fa fa-user-plus size-13"></i>'.html_safe, new_user_registration_path
+  li = link_to '<i class="fa fa-sign-in size-14"></i>'.html_safe, new_user_session_path
+  li = link_to '<i class="fa fa-user-plus size-14"></i>'.html_safe, new_user_registration_path

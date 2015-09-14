@@ -1,7 +1,10 @@
 .footer
   .pull-left
     div
-      strong Travelonline Inc. &copy; 2015
+      strong
+        = link_to 'Travelonline Inc.', page_path('about')
+        '
+        | &copy; 2015
   .pull-right
     div
       small = mail_to 'lugatex@yahoo.com', 'LugaTeX'
