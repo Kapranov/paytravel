@@ -20,6 +20,7 @@ gem 'kaminari'
 gem 'friendly_id'
 gem 'babosa'
 gem 'font-awesome-rails'
+gem 'lograge'
 
 group :development do
   gem 'better_errors'
