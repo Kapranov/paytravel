@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      = content_for?(:title) ? yield(:title) : 'Paytravel'
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Paytravel'}"
+  body
+    h3.text-center = @greeting + ", ОПЛАТА ТУРА"
+    p.m-t.text-right
+      | Irina Pietukhova
+      br
+      | Head of booking centre
+      br
+      | Traveline  Agency
+      br
+      | Global Travel & Leisure
+      br
+      | Kharkivske shose,49, off 2 Kiev,
+      br
+      | 02096, Ukraine,
+      br
+      | +38 044 232 97 62
+      br
+      | +38 050 331 32 24
+      br
+      | web:
+      '
+      a[href="http://travelonline.com.ua"] travelonline.com.ua
+    br
+    img[src="http://pay.travelonline.com.ua/assets/travelonline.jpg"]

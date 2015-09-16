@@ -125,6 +125,14 @@ uk:
   Sending letters: "Відправлення листів"
   Writing for the client: "Лист для клієнта: "
   About the Website: "Про сайт та туристичну компанію"
+  Report Created at: "Дата:"
+  Maximum sum for payment: "Максимальна сума транзакції з урахуванням комісії складає 4999,00 грн."
+  Thanks you for cooperation: "Дякуємо, що скористались послугами Traveline Agency!"
+  Form_field_one: "№ Договору"
+  Form_field_two: "Прізвище та Ім'я"
+  Form_field_three: "Сумма за туристичні послуги"
+  Form_field_four: "Комісія"
+  Hr: "грн"
   date:
     abbr_day_names:
     - нд.

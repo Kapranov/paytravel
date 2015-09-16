@@ -4,6 +4,7 @@ class Flight < ActiveRecord::Base
   extend FriendlyId
   # friendly_id :lastName
   friendly_id :lastName, use: :slugged
+  friendly_id :name, use: :slugged
   before_save :update_commission
   before_save :update_totalAmount
 
