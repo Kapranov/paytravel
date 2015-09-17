@@ -1,8 +1,15 @@
 .footer
+  .pull-left
+    div
+      strong.size-8
+        = link_to 'Travelonline Inc.', page_path('about')
+        '
+        | &copy; 2015
+  .main
+    .hour
+    .min
+    .second
   .pull-right
     div
-      strong
-        | Travelonline Inc. &copy; 2015
-  div
-    strong
-      = I18n.localize(Date.today, :format => :long)
+      strong.size-8
+        = I18n.localize(Date.today, :format => :long)
